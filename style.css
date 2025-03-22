@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -601,6 +603,7 @@ span {
   color: white;
 }
 
+/* Responsive adjustments for all screen sizes */
 @media(max-width:1285px) {
   html {
       font-size: 55%;
@@ -696,5 +699,109 @@ span {
   }
   .services-container {
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* Added more responsive styles for smaller devices */
+@media(max-width: 768px) {
+  html {
+    font-size: 50%;
+  }
+  .home-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .home-content h1 {
+    font-size: 6rem;
+  }
+  .home-img img {
+    width: 70vw;
+    margin-bottom: 4rem;
+  }
+  .wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .Certifications-item {
+    min-height: auto;
+    margin: 0;
+    padding: 30px;
+  }
+  .btn-group {
+    justify-content: center;
+  }
+  .social-icons {
+    text-align: center;
+  }
+  .social-icons a {
+    margin: 2rem 1rem;
+  }
+}
+
+@media(max-width: 600px) {
+  .navbar {
+    width: 70%;
+  }
+  .home-content h1 {
+    font-size: 5rem;
+  }
+  .home-content h3 {
+    font-size: 2.2rem;
+  }
+  .text-animation {
+    font-size: 2.5rem;
+    min-width: 220px;
+  }
+  .timeline-content {
+    padding: 20px 30px;
+  }
+  .footer ul li {
+    padding: 0 10px;
+  }
+}
+
+@media(max-width: 480px) {
+  html {
+    font-size: 45%;
+  }
+  .header {
+    padding: 2rem 6%;
+  }
+  .home-img img {
+    width: 80vw;
+  }
+  .service-box .service-info {
+    padding: 3rem 2rem;
+  }
+  .contact form .input-box input,
+  .contact form textarea {
+    padding: 1.8rem;
+  }
+  .footer .social a {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    margin: 0 5px;
+  }
+  .footer ul li {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+@media(max-width: 380px) {
+  .home-content h1 {
+    font-size: 4rem;
+  }
+  .home-content h3 {
+    font-size: 1.8rem;
+  }
+  .text-animation {
+    font-size: 2rem;
+  }
+  .btn {
+    padding: 0.8rem 2rem;
+  }
+  .btn-group {
+    flex-direction: column;
   }
 }
