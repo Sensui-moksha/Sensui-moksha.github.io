@@ -1,0 +1,24 @@
+<! DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Window Object Example</title>
+ <script>
+ function windowExample() {
+ // Display an alert using the window object
+ window.alert("This is a window alert!");
+ window.open("https://www.example.com", "_blank");
+ window.resizeTo(800, 600);
+ 
+ // Get the current window width and height
+ alert("Window width: " + window.innerWidth + ", Window height: " + 
+window.innerHeight);
+ }
+ </script>
+</head>
+<body>
+ <h1>Window Object Example</h1>
+ <button onclick="windowExample()">Click for Window Object Methods</button>
+</body>
+</html>
