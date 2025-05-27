@@ -61,7 +61,7 @@ Welcome to my personal developer portfolio! This project showcases my work, skil
 
 ## 🙋 About Me
 
-Hi, I'm **Mokshyagna Yadav** – a curious developer currently. I enjoy solving problems through code and have hands-on experience in:
+Hi, I'm **Mokshyagna Yadav** – a curious developer. Currently I enjoy solving problems through code and have hands-on experience in:
 
 - 🔧 Python, C, Java, HTML
 - 🐧 Linux system operations
