@@ -1,48 +1,87 @@
-🌐 Moksha's Developer Portfolio
-Welcome to my personal developer portfolio! This is a dynamic and responsive website built to showcase my skills, education, certifications, and services as a full-stack web developer and Linux enthusiast. The site is crafted with HTML, CSS, and JavaScript, following modern design principles with interactive features.
+# 🌐 Moksha's Developer Portfolio
 
-✨ Features
-Clean UI & Responsive Design — Built with a mobile-first approach using CSS Grid and Flexbox.
+Welcome to my personal developer portfolio! This project showcases my work, skills, and certifications as a **Full-Stack Web Developer** and **Linux Enthusiast**.
 
-Dynamic Navbar — Highlighting active sections based on scroll position.
+---
 
-Interactive Animations — Smooth transitions and effects powered by custom CSS and JavaScript.
+## ✨ Features
 
-Modular Sections:
+- 🎨 **Clean & Modern UI** – Responsive design with custom styles
+- 🧭 **Interactive Navigation** – Highlights active section on scroll
+- 📜 **Dynamic Sections**:
+  - **Home** – Introduction and links to socials
+  - **Education** – Timeline-style academic history
+  - **Services** – My areas of expertise
+  - **Certifications** – Verified programming credentials
+  - **Contact** – Responsive form layout
 
-Home — Brief introduction and social profiles.
+---
 
-Education — Timeline of academic background.
+## 🛠 Tech Stack
 
-Services — Skills like UI Design, Networking, Testing, and Systems.
+- **Frontend:**  
+  ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white)  
+  ![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat&logo=css3&logoColor=white)  
+  ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)  
 
-Certifications — Verified credentials in C, Python, and Android development.
+- **Design:**  
+  Poppins font, Boxicons, CSS animations
 
-Contact — Functional contact form layout.
+- **Tools:**  
+  VS Code, Git, GitHub
 
-🛠 Tech Stack
-Frontend: HTML5, CSS3 (custom responsive design), Vanilla JavaScript
+---
 
-Design: Poppins font, Boxicons, and subtle animations
+## 🎓 Education
 
-Responsive Design: Fully adaptive to mobile, tablet, and desktop screens
+- **2021** – High School (Sree Akshara School, Hyderabad)  
+- **2023** – MPC at Little Flower Junior College (LFJC), Hyderabad  
+- **Present** – B.Tech in Computer Science Engineering at MIC College of Technology, Andhra Pradesh
 
-📜 Certifications
-🧠 C Programming - Infosys Springboard
+---
 
-🐍 Python - Infosys Springboard
+## 📜 Certifications
 
-🤖 Android Development - Google Certification
+| Certificate        | Issuer            | Description                           |
+|--------------------|-------------------|---------------------------------------|
+| ![C](assets/C.png) | Infosys Springboard | C Language Programming               |
+| ![Android](assets/G.png) | Google              | Android Development Certification     |
+| ![Python](assets/P.png) | Infosys Springboard | Python Programming                   |
 
-🙋 About Me
-I'm Mokshyagna Yadav — a passionate B.Tech Computer Science student from Andhra Pradesh, India. With a strong foundation in programming (Python, C, Java, HTML) and hands-on knowledge in Linux systems and UI design, I build elegant and efficient digital solutions.
+---
 
-🔗 Connect with Me
-LinkedIn
+## 💼 Services
 
-GitHub
+- **UI Design** – Clean, accessible user interfaces  
+- **Computer Networking** – Designing and managing IT networks  
+- **Testing** – Quality assurance for web systems  
+- **Systems** – Linux and terminal power user  
 
-Instagram
+---
 
-Discord
+## 🙋 About Me
 
+Hi, I'm **Mokshyagna Yadav** – a curious developer currently pursuing B.Tech in CSE. I enjoy solving problems through code and have hands-on experience in:
+
+- 🔧 Python, C, Java, HTML
+- 🐧 Linux system operations
+- 💡 Building efficient, elegant solutions
+
+---
+
+## 📬 Contact Me
+
+- **LinkedIn:** [mokshyagnayadav](https://www.linkedin.com/in/mokshyagnayadav/)
+- **GitHub:** [Sensui-moksha](https://github.com/Sensui-moksha)
+- **Instagram:** [@mokshyagnayadav](https://www.instagram.com/mokshyagnayadav/)
+- **Discord:** `Sensui#1001`
+
+---
+
+## 📸 Preview
+
+![Portfolio Preview](assets/me.png)
+
+> “Code is like humor. When you have to explain it, it’s bad.” – Cory House
+
+---
