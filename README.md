@@ -61,7 +61,7 @@ Welcome to my personal developer portfolio! This project showcases my work, skil
 
 ## 🙋 About Me
 
-Hi, I'm **Mokshyagna Yadav** – a curious developer currently pursuing B.Tech in CSE. I enjoy solving problems through code and have hands-on experience in:
+Hi, I'm **Mokshyagna Yadav** – a curious developer currently. I enjoy solving problems through code and have hands-on experience in:
 
 - 🔧 Python, C, Java, HTML
 - 🐧 Linux system operations
@@ -80,7 +80,7 @@ Hi, I'm **Mokshyagna Yadav** – a curious developer currently pursuing B.Tech i
 
 ## 📸 Preview
 
-![Portfolio Preview](assets/me.png)
+![Portfolio Preview](assets/PortfolioPreview.png)
 
 > “Code is like humor. When you have to explain it, it’s bad.” – Cory House
 
