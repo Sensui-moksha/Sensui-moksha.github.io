@@ -75,14 +75,14 @@
 .theme-light {
   --bg-primary: #ffffff;
   --bg-secondary: #fbf7f7;
-  --text-primary: #0b0b0b;
-  --text-secondary: #5a3030;
+  --text-primary: #1a1a1a;
+  --text-secondary: #8b4545;
   --accent: #b30f10;
   --accent-rgb: 179, 15, 16;
   --bg-primary-rgb: 255, 255, 255;
   --bg-secondary-rgb: 251, 247, 247;
-  --text-primary-rgb: 11, 11, 11;
-  --text-secondary-rgb: 90, 48, 48;
+  --text-primary-rgb: 26, 26, 26;
+  --text-secondary-rgb: 139, 69, 69;
   --terminal-btn-close-rgb: 179, 15, 16;
   --terminal-btn-minimize-rgb: 255, 189, 46;
   --terminal-btn-maximize-rgb: 39, 201, 63;
@@ -115,6 +115,46 @@
   --muted-2-rgb: 138, 90, 90;
   --muted: rgba(var(--muted-rgb), 1);
   --muted-2: rgba(var(--muted-2-rgb), 1);
+}
+
+/* Light theme text enhancements */
+.theme-light {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Light theme: nav-link styling enhancement */
+.theme-light .nav-link {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.theme-light .nav-link:hover {
+  font-weight: 600;
+}
+
+/* Light theme: heading and primary text enhancements */
+.theme-light h1,
+.theme-light h2,
+.theme-light h3,
+.theme-light h4,
+.theme-light h5,
+.theme-light h6 {
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.theme-light body,
+.theme-light p {
+  letter-spacing: 0.4px;
+  line-height: 1.6;
+}
+
+/* Light theme: secondary text enhancement */
+.theme-light .text-accent,
+.theme-light .accent {
+  font-weight: 600;
 }
 
 /* Smoothly transition between themeable surfaces */
@@ -343,6 +383,23 @@ body {
     rgba(var(--accent-rgb), 1),
     transparent 45%
   );
+}
+
+/* Light theme: meta-chip text enhancement */
+.theme-light .meta-chip {
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* Light theme: terminal text styling */
+.theme-light .terminal-text,
+.theme-light .terminal-window {
+  font-weight: 500;
+}
+
+.theme-light .terminal-status-item {
+  font-weight: 500;
+  letter-spacing: 0.2px;
 }
 
 .gradient-text {
