@@ -1,202 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moksha's Portfolio </title>
-    <link rel="stylesheet" href="style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <meta name="color-scheme" content="light dark">
+        <title>Moksha | Portfolio</title>
+        <meta name="description" content="Mokshyagna Yadav — Full-stack developer. Portfolio showcasing projects, skills, and contact information.">
+        <meta name="keywords" content="Moksha, Mokshyagna Yadav, full-stack developer, portfolio, web developer, JavaScript, HTML, CSS, Node.js, React, Linux">
+        <meta name="author" content="Mokshyagna Yadav">
+        <meta name="robots" content="index, follow">
+        <link rel="canonical" href="https://github.com/Sensui-moksha">
+
+        <!-- Open Graph / Social -->
+        <meta property="og:title" content="Moksha | Portfolio">
+        <meta property="og:description" content="Full-stack developer portfolio showcasing projects, skills, and contact information.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://github.com/Sensui-moksha">
+        <meta property="og:image" content="https://github.com/Sensui-mokshaassets/og-image.png">
+
+        <!-- Structured data (JSON-LD) -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Mokshyagna Yadav",
+            "url": "https://github.com/Sensui-moksha",
+            "sameAs": [
+                "https://github.com/Sensui-moksha",
+                "https://linkedin.com/in/mokshyagnayadav",
+                "https://instagram.com/mokshyagnayadav"
+            ],
+            "jobTitle": "Student",
+            "email": "d.mokshyagnayadav@gmail.com"
+        }
+        </script>
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    <link rel="apple-touch-icon" href="assets/icon.png">
+    <!-- Core styles and resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="/styles/style.css">
+
+    <style>
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -99;
+        }
+    </style>
+    
 </head>
-<body>
+<body class="relative">
 
-<header class="header">
-    <a href="#home" class="logo"data-aos="zoom-in" data-aos-duration="1000">Mokshyagna<span>Yadav</span></a>
-    <i class='bx bx-menu' id="menu-icon"></i>
-    <nav class="navbar">
-        <a href="#home" class="active">Home</a>
-        <a href="#education">Education</a>
-        <a href="#services">Services</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
-
-<section class="home" id="home">
-    <div class="home-content" style="display: flex;">
-        <div>
-            <div class="hero-content" style="margin-right: 5rem;">
-                <h1>Hi, It's <span> Moksha</span></h1>
-                <h3 class="text-animation">I'm a <span></span></h3>
-                <p>I'm a passionate full-stack developer with a strong foundation in modern web technologies and some experience.
-                    As a Linux enthusiast and command-line power user, I bring a systematic approach to problem-solving 
-                    and development. Currently pursuing my B.Tech in Computer Science, I combine academic knowledge 
-                    with practical experience to create efficient and innovative solutions.</p>
-            </div>
-            <div class="social-icons" style="display: flex; gap: 1rem;">
-                <a href="https://www.linkedin.com/in/mokshyagnayadav/"target="_blank"><i class='bx bxl-linkedin'></i></a>
-                <a href="https://github.com/Sensui-moksha"target="_blank"><i class='bx bxl-github'></i></a>
-                <a href="https://www.instagram.com/mokshyagnayadav/"target="_blank"><i class='bx bxl-instagram'></i></a>
-                <a href="https://discord.com/users/618623068688089100"target="_blank"><i class='bx bxl-discord-alt'></i></a>
-            </div>
-            <div class="btn-group" style="display: flex; gap: 1rem; margin-top: 1rem;">
-                <a href="#" class="btn">Hire</a>
-                <a href="#contact" class="btn">Contact</a>
-            </div>
-        </div>
-        <div class="home-img" style="margin-left: 10rem;">
-            <img src="assets/me.png" alt="Profile Image" style="max-width: 100%; height: auto;">
+    <!-- Site loader: shown while the resources are being initiated-->
+    <div id="site-loader" class="site-loader" role="status" aria-live="polite" aria-label="site loading">
+        <div class="loader-inner">
+            <div class="spinner" aria-hidden="true"></div>
+            <div class="loader-text">loading…</div>
         </div>
     </div>
-</section>
 
-<section class="education" id="education">
-    <h2 class="heading">Education</h2>
-    <div class="timeline-items">
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">2021</div>
-            <div class="timeline-content">
-                <h3>High School</h3>
-                <p>I graduated from Sree Akshara School, Hyderabad, Telangana in 2021..</p>
-            </div>
+    <!-- Floating Navbar -->
+    <nav id="main-nav" class="centered-nav" role="navigation" aria-label="Primary">
+        <div class="nav-links-container">
+            <a href="#home" class="nav-link">home</a>
+            <a href="#about" class="nav-link">about</a>
+            <a href="#qualifications" class="nav-link">credentials</a>
+            <a href="#work" class="nav-link">archives</a>
+            <a href="#contact" class="nav-link">connect</a>
         </div>
 
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">2021</div>
-            <div class="timeline-content">
-                <h3>Intermediate</h3>
-                <p>Following my graduation from Sree Akshara School, I enrolled in Little Flower Junior College (LFJC) in 2021, pursuing a MPC program, and graduated in 2023..</p>
+        <a href="#home" class="mobile-home mobile-only" aria-label="Home">home</a>
+        <button id="mobile-theme-toggle" class="theme-toggle mobile-only" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme"> <i class="fas fa-moon"></i> </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center px-4 sm:px-6 py-20 relative">
+        <div class="container mx-auto flex items-center justify-center relative z-10">
+            <div data-aos="fade-up" class="text-center hover:transform hover:scale-105 transition-all duration-300 relative">
+                <div class="hero-bg absolute top-0 left-0 w-full h-full"></div>
+                <div class="terminal-window mb-6 relative">
+                    <div class="terminal-header flex items-center justify-between">
+                        <div class="terminal-buttons flex space-x-2">
+                            <span class="terminal-button close" style="background-color: rgba(var(--terminal-btn-close-rgb),1); width: 16px; height: 16px; border-radius: 50%; display: inline-block; box-shadow: 0 0 5px rgba(var(--terminal-btn-close-rgb),0.5);"></span>
+                            <span class="terminal-button minimize" style="background-color: rgba(var(--terminal-btn-minimize-rgb),1); width: 16px; height: 16px; border-radius: 50%; display: inline-block; box-shadow: 0 0 5px rgba(var(--terminal-btn-minimize-rgb),0.5);"></span>
+                            <span class="terminal-button maximize" style="background-color: rgba(var(--terminal-btn-maximize-rgb),1); width: 16px; height: 16px; border-radius: 50%; display: inline-block; box-shadow: 0 0 5px rgba(var(--terminal-btn-maximize-rgb),0.5);"></span>
+                        </div>
+                        <div class="terminal-title" style="color: var(--accent); font-weight: bold; font-size: 1.25rem;">[SYSTEM] visitor@Portfolio:~</div>
+                    </div>
+                    <div class="terminal-status" aria-label="session status">
+                        <span class="terminal-status-item">session: <strong id="terminal-session-id">booting</strong></span>
+                        <span class="terminal-status-item">uptime: <strong id="terminal-uptime">00:00:00</strong></span>
+                        <span class="terminal-status-item">mode: <strong id="terminal-mode">analysis</strong></span>
+                        <span class="terminal-status-item">sync: <strong id="terminal-sync">idle</strong></span>
+                    </div>
+                    <div class="terminal-content p-8" style="color: var(--text-primary); font-family: 'Share Tech Mono', monospace; text-align: left; overflow-x: auto; min-height: 200px;">
+                        <p class="terminal-line"><span class="terminal-prompt" style="color: var(--accent); font-size: 1.25rem; ">$</span> <span class="text-gray-400">whoami | figlet</span></p>
+                        <pre class="text-5xl sm:text-6xl md:text-7xl font-bold whitespace-pre-wrap" style="color: var(--accent); ">Moksha
+                        </pre>
+                        <p class="terminal-line"><span class="terminal-prompt" style="color: var(--accent); font-size: 1.10rem; ">$</span> <span id="terminal-command" class="text-gray-400">./telemetry --brief</span></p>
+                        <p class="terminal-line"><span class="terminal-prompt" style="color: var(--accent); font-size: 1.25rem; ">&gt; </span><span id="terminal-output" class="text-gray-400">status=ready latency=17ms integrity=ok</span></p>
+                        <p class="terminal-line"><span class="terminal-prompt" style="color: var(--accent); font-size: 1.10rem; ">$</span> <span class="text-gray-400">./intro.sh</span></p>
+                        <p class="terminal-line"><span class="terminal-prompt" style="color: var(--accent); font-size: 1.25rem; ">&gt; </span><span id="typed-text" class="text-xl sm:text-2xl text-gray-400"></span></p>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">2023</div>
-            <div class="timeline-content">
-                <h3>University</h3>
-                <p>Following graduation from LFJC, I am pursuing a Bachelor of Science in Computer Science Engineering at MIC College of Technology in Andhra Pradesh..</p>
-            </div>
-        </div>
-
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">Skills</div>
-            <div class="timeline-content">
-                <h3>Programming Languages I am familiar with:</h3>
-                <p>
-                    Python <br>
-                    C <br>
-                    java <br>
-                    Html....<br>
+    <!-- About Section -->
+    <section id="about" class="py-12 md:py-20 px-4 md:px-6" style="background-color: rgba(var(--bg-secondary-rgb), 0.55); backdrop-filter: blur(5px);">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-16 terminal-text" data-aos="fade-up">&gt; bio.dat</h2>
+            
+            <!-- Introduction Subsection -->
+            <div class="card card-static p-6 md:p-8 rounded-lg mb-8" data-aos="fade-up">
+                <h3 class="text-xl md:text-2xl font-bold mb-4 gradient-text">Introduction</h3>
+                <div class="meta-chips mb-4" aria-label="introduction metadata">
+                    <span class="meta-chip">focus: appsec</span>
+                    <span class="meta-chip">stack: go python js</span>
+                    <span class="meta-chip">status: active</span>
+                </div>
+                <p class="text-sm md:text-base text-gray-400 leading-relaxed">
+                    Red‑team operator and full‑stack developer. I build and assess services using modern languages and
+                    automation, and exercise systems and toolchains to evaluate resilience and improve reliability.
                 </p>
             </div>
-        </div>
-    </div>
-</section>
 
-<section class="services" id="services">
-    <h2 class="heading">Services</h2>
-    <div class="services-container">
-        <div class="service-box">
-            <div class="service-info">
-                <h4>UI Design</h4>
-                <p>User interface (UI) design is the process designers use to build interfaces in software or computerized devices, focusing on looks or style. Designers aim to create interfaces which users find easy to use and pleasurable. UI design refers to graphical user interfaces..</p>
+            <!-- Skills Subsection -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+                <div class="card card-static p-6 md:p-8 rounded-lg" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-code text-3xl md:text-4xl mb-4" style="color: var(--accent)"></i>
+                    <h3 class="text-lg md:text-xl font-bold mb-4">Development</h3>
+                    <div class="meta-chips mb-4" aria-label="development metadata">
+                        <span class="meta-chip">type: engineering</span>
+                        <span class="meta-chip">scope: backend tooling</span>
+                    </div>
+                    <p class="text-sm md:text-base text-gray-400">Languages: Python, Go, C/C++ — service and tooling development, APIs and integrations.</p>
+                </div>
+                <div class="card card-static p-6 md:p-8 rounded-lg" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-terminal text-3xl md:text-4xl mb-4" style="color: var(--accent)"></i>
+                    <h3 class="text-lg md:text-xl font-bold mb-4">Systems</h3>
+                    <div class="meta-chips mb-4" aria-label="systems metadata">
+                        <span class="meta-chip">type: infra</span>
+                        <span class="meta-chip">ops: linux + shell</span>
+                    </div>
+                    <p class="text-sm md:text-base text-gray-400">Systems & automation: Linux administration, Bash and PowerShell scripting, deployment tooling.</p>
+                </div>
+                <div class="card card-static p-6 md:p-8 rounded-lg" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-brain text-3xl md:text-4xl mb-4" style="color: var(--accent)"></i>
+                    <h3 class="text-lg md:text-xl font-bold mb-4">Problem Solving</h3>
+                    <div class="meta-chips mb-4" aria-label="problem solving metadata">
+                        <span class="meta-chip">domain: security</span>
+                        <span class="meta-chip">method: adversarial</span>
+                    </div>
+                    <p class="text-sm md:text-base text-gray-400">Security-focused problem solving: adversary emulation, reconnaissance and assessment with common toolchains.</p>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="service-box">
-            <div class="service-info">
-                <h4>Computer Networking</h4>
-                <p>IT networking is the practice of designing, building, and maintaining networks that allow devices to exchange data. It's also known as computer networking..</p>
+    <!-- Qualifications Section -->
+    <section id="qualifications" class="py-12 md:py-20 px-4 md:px-6">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-16 terminal-text" data-aos="fade-up">&gt; Credentials</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+                <div class="card card-static p-6 md:p-8 rounded-lg" data-aos="fade-up">
+                    <h3 class="text-xl md:text-2xl font-bold mb-6 gradient-text"> &gt; Education</h3>
+                    <div class="meta-chips mb-4" aria-label="education metadata">
+                        <span class="meta-chip">track: computing</span>
+                        <span class="meta-chip">state: ongoing</span>
+                    </div>
+                    <div id="education-container" class="space-y-6">
+                        <template id="education-template">
+                            <div>
+                                <h4 class="text-base md:text-lg font-bold education-degree"></h4>
+                                <p class="text-sm md:text-base text-gray-400 education-institution"></p>
+                                <p class="text-sm md:text-base text-gray-400 mt-2 education-description"></p>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+                <div class="card card-static p-6 md:p-8 rounded-lg" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl md:text-2xl font-bold mb-6 gradient-text"> &gt; Skills</h3>
+                    <div class="meta-chips mb-4" aria-label="skills metadata">
+                        <span class="meta-chip">index: categorized</span>
+                        <span class="meta-chip">coverage: full-stack</span>
+                    </div>
+                    <div id="skills-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                        <template id="skills-template">
+                            <div class="p-3 sm:p-4">
+                                <h4 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 skill-category"></h4>
+                                <ul class="text-sm sm:text-base md:text-lg text-gray-400 space-y-1 sm:space-y-2 skill-list">
+                                    <!-- Each skill item will include a logo and name -->
+                                </ul>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+            <div class="card p-6 md:p-8 rounded-lg mb-8 mt-12" data-aos="fade-up">
+                <h3 class="text-xl md:text-2xl font-bold mb-4 gradient-text"> &gt; Certifications</h3>
+                <div class="meta-chips mb-4" aria-label="certification metadata">
+                    <span class="meta-chip">source: verified</span>
+                    <span class="meta-chip">refresh: periodic</span>
+                </div>
+                <div id="certifications-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <template id="certification-template">
+                        <div class="card p-6 md:p-8 rounded-lg shadow-lg bg-gray-800 text-gray-200 hover:shadow-xl transition-shadow duration-300" data-aos="fade-up">
+                            <h4 class="text-base md:text-lg font-bold mb-2 certification-title text-accent"></h4>
+                            <p class="text-xs md:text-sm text-gray-400 mb-2 certification-issuer"></p>
+                            <p class="text-xs md:text-sm text-gray-500 italic mb-4 certification-date"></p>
+                            <p class="text-xs md:text-sm text-gray-300 certification-description leading-relaxed"></p>
+                        </div>
+                    </template>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="service-box">
-            <div class="service-info">
-                <h4>Testing</h4>
-                <p>IT networking is the practice of designing, building, and maintaining networks that allow devices to exchange data. It's also known as computer networking..</p>
+    <!-- Work Section -->
+    <section id="work" class="py-12 md:py-20 px-4 md:px-6" style="background-color: rgba(var(--bg-secondary-rgb), 0.55); backdrop-filter: blur(5px);">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-16 terminal-text" data-aos="fade-up">&gt; Archives</h2>
+            <div id="github-repos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="loading-spinner text-center col-span-2">
+                    <i class="fas fa-spinner fa-spin text-4xl text-accent"></i>
+                </div>
+                <template id="repo-template">
+                    <div class="card p-6 rounded-lg hover:scale-[1.02] transition-transform" data-aos="fade-up">
+                        <h3 class="text-xl font-bold mb-3 gradient-text"></h3>
+                        <div class="meta-chips mb-3" aria-label="repository metadata">
+                            <span class="meta-chip">lang: <span class="repo-language"></span></span>
+                            <span class="meta-chip">stars: <span class="repo-stars"></span></span>
+                            <span class="meta-chip">updated: <span class="repo-updated"></span></span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4 repo-description"></p>
+                        <div class="flex items-center space-x-4 text-sm mb-4">
+                            <span class="flex items-center text-gray-500"><i class="fas fa-code-branch mr-2"></i>repo</span>
+                            <a href="#" class="repo-link ml-auto text-accent hover:underline" target="_blank">
+                                <p class="font-bold font text-lg">$viewProject</p>
+                            </a>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div class="text-center mt-8">
+                <a href="https://github.com/Sensui-moksha?tab=repositories" target="_blank" rel="noopener" class="view-all-btn" aria-label="View all repositories">View All Repositories <i class="fas fa-external-link-alt"></i></a>
             </div>
         </div>
+    </section>
 
-        <div class="service-box">
-            <div class="service-info">
-                <h4>Systems</h4>
-                <p>Linux enthusiast and command-line power user..</p>
+    <!-- Contact Section -->
+    <section id="contact" class="py-12 md:py-20 px-4 md:px-6">
+        <div class="container mx-auto max-w-2xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-16 terminal-text" data-aos="fade-up">&gt; connect</h2>
+            <div class="card p-6 md:p-8 rounded-lg text-center" data-aos="fade-up">
+                <div class="mb-6 md:mb-8">
+                    <h3 class="text-lg md:text-xl mb-2">Email</h3>
+                    <a href="mailto:d.mokshyagnayadav@gmail.com" class="text-sm md:text-base text-accent hover:underline transform hover:translate-y-[-2px] inline-block transition-transform">d.mokshyagnayadav@gmail.com</a>
+                </div>
+                <div class="flex justify-center space-x-6">
+                    <a href="https://github.com/Sensui-moksha" class="social-link text-xl md:text-2xl" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://instagram.com/mokshyagnayadav" class="social-link text-xl md:text-2xl" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/mokshyagnayadav" class="social-link text-xl md:text-2xl" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="certifications" id="certifications">
-    <h2 class="heading">Certifications</h1>
-    <div class="wrapper">
-        <div class="Certifications-item">
-            <img src="assets/C.png" alt="">
-            <h2>C Language</h2>
-            <div class="rating">
-                <i class='bx bxl-c-plus-plus'id="icon"></i>
-            </div>
-            <p>An Infosys Springboard certificate in C programming..</p>
+    <!-- Footer -->
+    <footer class="py-6 text-center text-gray-400 text-sm" style="background-color: rgba(var(--bg-secondary-rgb), 0.55); backdrop-filter: blur(5px);">
+        <div class="container mx-auto">
+            <p>&copy; 2026 Mokshyagna Yadav. All rights reserved.</p>
         </div>
+    </footer>
 
-        <div class="Certifications-item">
-            <img src="assets/G.png" alt="">
-            <h2>Android</h2>
-            <div class="rating">
-                <i class='bx bxl-android'id="icon"></i>
-            </div>
-            <p>A Google Android developer certification program From google..</p>
-        </div>
-
-        <div class="Certifications-item">
-            <img src="assets/P.png" alt="">
-            <h2>Python</h2>
-            <div class="rating">
-                <i class='bx bxl-python'id="icon"></i>
-            </div>
-            <p>An Infosys Springboard certificate in Python programming..</p>
-        </div>
-    </div>
-</section>
-
-<section class="contact" id="contact">
-    <h2 class="heading">Contact <span>Me</span></h2>
-    <form action="">
-        <div class="input-group">
-            <div class="input-box">
-                <input type="text" placeholder="Full Name">
-                <input type="email" placeholder="Email">
-            </div>
-            <div class="input-box">
-                <input type="number" placeholder="Phone Number">
-                <input type="text" placeholder="Subject">
-            </div>
-        </div>
-        <div class="input-group-2">
-            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-            <input type="submit" value="Send message" class="btn">
-        </div>
-    </form>
-</section>
-
-<footer class="footer">
-    <div class="social">
-        <a href="https://www.linkedin.com/in/mokshyagnayadav/"><i class='bx bxl-linkedin'></i></a>
-        <a href="https://github.com/Sensui-moksha"><i class='bx bxl-github'></i></a>
-        <a href="https://www.instagram.com/mokshyagnayadav/"><i class='bx bxl-instagram'></i></a>
-        <a href="https://discord.com/users/618623068688089100"><i class='bx bxl-discord-alt'></i></a>
-    </div>
-    <ul class="list">
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">About Me</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Certifications</a></li>
-    </ul>
-    <p class="copyright">© Mokshyagna Yadav | All Rights Reserved</p>
-</footer>
-
-<script src="script.js"></script>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" defer></script>
+    <script src="/scripts/script.js" defer></script>
 </body>
 </html>

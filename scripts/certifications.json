@@ -1,0 +1,34 @@
+{
+  "certifications": [
+    {
+      "title": "REDHAT-D101",
+      "issuer": "Red Hat",
+      "date": "2023-06",
+      "description": "Certification in Red Hat Linux system administration and management."
+    },
+    {
+      "title": "Google Associate Android Developer",
+      "issuer": "Google",
+      "date": "2024-12",
+      "description": "Certification in Android application development using modern tools and practices."
+    },
+    {
+      "title": "Palo Alto Cybersecurity Beginner",
+      "issuer": "EduSkills",
+      "date": "2025-03",
+      "description": "Fundamental concepts of network security, threat prevention, and security best practices using Palo Alto Networks technologies"
+    },
+    {
+      "title": "CyberSecurity Internship",
+      "issuer": "Edunet Foundation",
+      "date": "15-Jan-2025 - 26-Feb-2025",
+      "description": "Hands-on experience in cybersecurity practices, threat analysis, and security implementation through an intensive internship program."
+    },
+    {
+      "title": "IIOT (Industrial Internet of Things)",
+      "issuer": "NPTEL",
+      "date": "Jul-2025 - OCT-2025",
+      "description": "Comprehensive understanding of Industrial Internet of Things (IIoT) technologies, applications, and security considerations."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+    "skills": [
+        {
+            "category": "Languages",
+            "items": [
+                { "name": "Python", "logo": "/assets/icons/python.svg" },
+                { "name": "PowerShell", "logo": "/assets/icons/powershell.svg" },
+                { "name": "Bash", "logo": "/assets/icons/bash.svg" },
+                { "name": "Kotlin", "logo": "/assets/icons/kotlin.svg" },
+                { "name": "C", "logo": "/assets/icons/c.svg" },
+                { "name": "Java", "logo": "/assets/icons/java.svg" }
+            ]
+        },
+        {
+            "category": "Technologies",
+            "items": [
+                { "name": "Nmap", "logo": "/assets/icons/nmap.svg" },
+                { "name": "Burp Suite", "logo": "/assets/icons/burpsuite.svg" },
+                { "name": "Wireshark", "logo": "/assets/icons/wireshark.svg" }
+            ]
+        }
+    ]
+}

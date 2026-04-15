@@ -1,0 +1,19 @@
+{
+    "education": [
+        {
+            "degree": "High School",
+            "institution": "Sree Akshara School, Hyderabad, Telangana in 2021..",
+            "description": "Completed high school with a focus on science and mathematics."
+        },
+        {
+            "degree": "Intermediate",
+            "institution": "Little Flower Junior College (LFJC) in 2021",
+            "description": "pursuing a MPC program, and graduated in 2023.."
+        },
+        {
+            "degree": "Computer Science (B.Tech)",
+            "institution": "MIC College of Engineering • 2024-2027",
+            "description": "Relevant coursework in algorithms, and software engineering."
+        }
+    ]
+}

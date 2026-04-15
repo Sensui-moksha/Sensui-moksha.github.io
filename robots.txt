@@ -1,0 +1,10 @@
+# robots.txt for Sensui-moksha.github.io
+
+User-agent: *
+Allow: /
+Crawl-delay: 5
+
+# Sitemap
+Sitemap: https://github.com/Sensui-mokshasitemap.xml
+# Host directive
+Host: Sensui-moksha.github.io
