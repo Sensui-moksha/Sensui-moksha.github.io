@@ -1,87 +1,115 @@
-# 🌐 Moksha's Developer Portfolio
+# 🚀 Mokshyagna Yadav — Personal Portfolio
 
-Welcome to my personal developer portfolio! This project showcases my work, skills, and certifications as a **Full-Stack Web Developer** and **Linux Enthusiast**.
+A modern, high-performance **3D personal portfolio website** built with **React**, **TypeScript**, **Three.js**, **GSAP**, and **WebGL**.
 
----
-
-## ✨ Features
-
-- 🎨 **Clean & Modern UI** – Responsive design with custom styles
-- 🧭 **Interactive Navigation** – Highlights active section on scroll
-- 📜 **Dynamic Sections**:
-  - **Home** – Introduction and links to socials
-  - **Education** – Timeline-style academic history
-  - **Services** – My areas of expertise
-  - **Certifications** – Verified programming credentials
-  - **Contact** – Responsive form layout
+> 🌐 Live: [localhost:5173](http://localhost:5173) *(deploy to go live)*
 
 ---
 
-## 🛠 Tech Stack
+## 👨‍💻 About Me
 
-- **Frontend:**  
-  ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white)  
-  ![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat&logo=css3&logoColor=white)  
-  ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)  
+**Mokshyagna Yadav** — Engineering Student & Tech Enthusiast from Hyderabad, India.
 
-- **Design:**  
-  Poppins font, Boxicons, CSS animations
+I'm a Computer Science Engineering student at **MIC College of Technology**, passionate about building scalable web applications, AI-powered solutions, and exploring emerging technologies.
 
-- **Tools:**  
-  VS Code, Git, GitHub
+- 📧 Email: [d.mokshyagnayadav@gmail.com](mailto:d.mokshyagnayadav@gmail.com)
+- 💼 GitHub: [github.com/Sensui-moksha](https://github.com/Sensui-moksha)
+- 🔗 LinkedIn: [linkedin.com/in/mokshyagnayadav](https://www.linkedin.com/in/mokshyagnayadav)
+- 📸 Instagram: [instagram.com/mokshyagnayadav](https://www.instagram.com/mokshyagnayadav)
+- 📍 Location: Hyderabad, India
+
+---
+
+## ✨ Portfolio Highlights
+
+- **3D / WebGL experience** powered by **Three.js**
+- Scroll-driven purple timeline in the Career section
+- **GitHub API integration** — Projects auto-populate from GitHub repos
+- Smooth animations with **GSAP**
+- Modern **React + TypeScript** codebase
+- Resume popup menu (Download, View, Scroll to Top)
+- Fast, responsive UI — desktop + mobile
+
+---
+
+## 🧰 Tech Stack
+
+| Category | Technologies |
+|---|---|
+| Frontend | React, TypeScript, Vite |
+| 3D / Animation | Three.js, GSAP, WebGL |
+| Styling | Vanilla CSS |
+| Data | GitHub REST API |
+| Languages | Python, C++, Java |
+| Tools | Docker, Git, Linux |
 
 ---
 
 ## 🎓 Education
 
-- **2021** – High School (Sree Akshara School, Hyderabad)  
-- **2023** – MPC at Little Flower Junior College (LFJC), Hyderabad  
-- **Present** – B.Tech in Computer Science Engineering at MIC College of Technology, Andhra Pradesh
+| Year | Institution |
+|---|---|
+| 2023 – 2027 | B.Sc. CSE — MIC College of Technology, AP |
+| 2021 – 2023 | Intermediate (MPC) — Little Flower Junior College, Hyderabad |
+| 2021 | High School — Sree Akshara School, Hyderabad |
 
 ---
 
-## 📜 Certifications
+## 🚀 Getting Started
 
-| Certificate        | Issuer            | Description                           |
-|--------------------|-------------------|---------------------------------------|
-| ![C](assets/C.png) | Infosys Springboard | C Language Programming               |
-| ![Android](assets/G.png) | Google              | Android Development Certification     |
-| ![Python](assets/P.png) | Infosys Springboard | Python Programming                   |
+### 1) Clone
 
----
+```bash
+git clone https://github.com/Sensui-moksha/portfolio-website.git
+cd portfolio-website
+```
 
-## 💼 Services
+### 2) Install
 
-- **UI Design** – Clean, accessible user interfaces  
-- **Computer Networking** – Designing and managing IT networks  
-- **Testing** – Quality assurance for web systems  
-- **Systems** – Linux and terminal power user  
+```bash
+npm install
+```
 
----
+### 3) Run locally
 
-## 🙋 About Me
+```bash
+npm run dev
+```
 
-Hi, I'm **Mokshyagna Yadav** – a curious developer. Currently I enjoy solving problems through code and have hands-on experience in:
+### 4) Build for production
 
-- 🔧 Python, C, Java, HTML
-- 🐧 Linux system operations
-- 💡 Building efficient, elegant solutions
-
----
-
-## 📬 Contact Me
-
-- **LinkedIn:** [mokshyagnayadav](https://www.linkedin.com/in/mokshyagnayadav/)
-- **GitHub:** [Sensui-moksha](https://github.com/Sensui-moksha)
-- **Instagram:** [@mokshyagnayadav](https://www.instagram.com/mokshyagnayadav/)
-- **Discord:** `Sensui#1001`
+```bash
+npm run build
+```
 
 ---
 
-## 📸 Preview
+## 🧩 Customize
 
-![Portfolio Preview](assets/PortfolioPreview.png)
+All personal data lives in one file:
 
-> “Code is like humor. When you have to explain it, it’s bad.” – Cory House
+```
+src/config.ts
+```
+
+Update your name, social links, education, skills, and contact info there. Projects are fetched **automatically from your GitHub** — no manual update needed.
+
+To add your resume, drop your PDF at:
+
+```
+public/resume/resume.pdf
+```
 
 ---
+
+## 🤝 Connect
+
+- 📧 [d.mokshyagnayadav@gmail.com](mailto:d.mokshyagnayadav@gmail.com)
+- 💼 [github.com/Sensui-moksha](https://github.com/Sensui-moksha)
+- 🔗 [linkedin.com/in/mokshyagnayadav](https://www.linkedin.com/in/mokshyagnayadav)
+
+---
+
+## 🪪 License
+
+This project is open source and available under the **MIT License**. See [LICENSE](LICENSE).

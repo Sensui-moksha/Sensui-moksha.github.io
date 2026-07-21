@@ -1,0 +1,164 @@
+.icons-section {
+  position: fixed;
+  max-width: var(--cMaxWidth);
+  width: var(--cWidth);
+  bottom: 0;
+  z-index: 99;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.social-icons {
+  position: absolute;
+  left: -20px;
+  bottom: 20px;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 999;
+  padding: 10px;
+}
+.social-icons:hover {
+  transition: 0.3s;
+  color: var(--backgroundColor);
+}
+.social-icons a:hover {
+  color: var(--backgroundColor);
+  /* transform: scale(1.2); */
+}
+.social-icons span {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  display: flex;
+}
+.social-icons a {
+  --siLeft: 50%;
+  --siTop: 50%;
+  position: absolute;
+  left: var(--siLeft, 50%);
+  top: var(--siTop, 50%);
+  transform: translate(-50%, -50%);
+  display: flex;
+  font-size: 23px;
+  will-change: left, top;
+  transition: transform 0.3s ease-out;
+}
+.resume-button {
+  position: absolute;
+  z-index: 99;
+  display: flex;
+  gap: 5px;
+  bottom: 40px;
+  right: 0;
+  width: auto;
+  text-wrap: nowrap;
+  letter-spacing: 4px;
+  font-size: 15px;
+  line-height: 15px;
+  font-weight: 600;
+  color: #5e5e5e;
+  cursor: pointer;
+  transition: 0.5s;
+  transform-origin: left bottom;
+  transform: translateX(100%) rotateZ(-90deg);
+}
+.resume-button:hover {
+  color: #fff;
+}
+div.resume-button span {
+  color: #fff;
+  font-size: 17px;
+  margin-top: -1px;
+  display: flex;
+  align-items: center;
+}
+.check-line {
+  position: fixed;
+  top: 655px;
+  left: 0;
+  height: 1px;
+  background-color: #ffffff;
+  width: 100%;
+  z-index: 99999;
+}
+@media only screen and (min-width: 900px) {
+  .social-icons {
+    display: flex;
+    gap: 20px;
+  }
+  .social-icons a {
+    font-size: 28px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .resume-button {
+    transform: none;
+    font-size: 20px;
+    line-height: 20px;
+  }
+  div.resume-button span {
+    font-size: 23px;
+    margin-top: -1.5px;
+  }
+}
+
+/* Resume popup wrapper */
+.resume-wrapper {
+  position: absolute;
+  z-index: 99;
+  bottom: 40px;
+  right: 0;
+}
+
+.resume-menu {
+  position: absolute;
+  bottom: calc(100% + 14px);
+  right: 0;
+  background: rgba(15, 15, 15, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 190px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  animation: resumeMenuIn 0.18s ease;
+}
+
+@keyframes resumeMenuIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
+
+.resume-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  letter-spacing: 0.5px;
+  transition: background 0.18s, color 0.18s;
+  font-family: inherit;
+}
+
+.resume-menu-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.resume-menu-item svg {
+  font-size: 17px;
+  flex-shrink: 0;
+}
