@@ -9,6 +9,7 @@ import { MdArrowOutward, MdKeyboardArrowUp, MdDownload } from "react-icons/md";
 import { useEffect, useRef, useState } from "react";
 import HoverLinks from "./HoverLinks";
 import { config } from "../config";
+import { playButtonClick } from "../utils/audio";
 
 const SocialIcons = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -72,6 +73,7 @@ const SocialIcons = () => {
   }, []);
 
   const handleScrollTop = () => {
+    playButtonClick();
     window.scrollTo({ top: 0, behavior: "smooth" });
     setMenuOpen(false);
   };
@@ -80,18 +82,18 @@ const SocialIcons = () => {
     <div className="icons-section">
       <div className="social-icons" data-cursor="icons" id="social">
         <span>
-          <a href={config.contact.github} target="_blank" rel="noopener noreferrer">
+          <a href={config.contact.github} target="_blank" rel="noopener noreferrer" onClick={playButtonClick}>
             <FaGithub />
           </a>
         </span>
         <span>
-          <a href={config.contact.linkedin} target="_blank" rel="noopener noreferrer">
+          <a href={config.contact.linkedin} target="_blank" rel="noopener noreferrer" onClick={playButtonClick}>
             <FaLinkedinIn />
           </a>
         </span>
 
         <span>
-          <a href={config.contact.instagram} target="_blank" rel="noopener noreferrer">
+          <a href={config.contact.instagram} target="_blank" rel="noopener noreferrer" onClick={playButtonClick}>
             <FaInstagram />
           </a>
         </span>
@@ -105,7 +107,10 @@ const SocialIcons = () => {
               href="/resume/resume.pdf"
               download="Mokshyagna_Yadav_Resume.pdf"
               className="resume-menu-item"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => {
+                playButtonClick();
+                setMenuOpen(false);
+              }}
             >
               <MdDownload /> Download PDF
             </a>
@@ -114,7 +119,10 @@ const SocialIcons = () => {
               target="_blank"
               rel="noreferrer"
               className="resume-menu-item"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => {
+                playButtonClick();
+                setMenuOpen(false);
+              }}
             >
               <MdArrowOutward /> View Resume
             </a>
@@ -128,7 +136,19 @@ const SocialIcons = () => {
         )}
         <div
           className="resume-button"
-          onClick={() => setMenuOpen((prev) => !prev)}
+          role="button"
+          tabIndex={0}
+          onClick={() => {
+            playButtonClick();
+            setMenuOpen((prev) => !prev);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              playButtonClick();
+              setMenuOpen((prev) => !prev);
+            }
+          }}
           data-cursor="disable"
         >
           <HoverLinks text="RESUME" />

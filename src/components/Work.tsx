@@ -51,7 +51,7 @@ const defaultProjects: ProjectItem[] = config.projects.map((proj) => ({
   title: proj.title,
   description: proj.description,
   technologies: proj.technologies,
-  url: `https://github.com/${config.social.github}`,
+  url: (proj as { url?: string }).url || `https://github.com/${config.social.github}`,
   category: proj.category,
 }));
 
@@ -90,47 +90,72 @@ const Work = () => {
     if (window.innerWidth <= 768) return;
     if (projects.length === 0) return;
 
-    let translateX = 0;
+    const setupScroll = () => {
+      const workFlex = document.querySelector(".work-flex") as HTMLElement;
+      const ctaBox = document.querySelector(".work-box-cta") as HTMLElement;
+      if (!workFlex || !ctaBox) return null;
 
-    function setTranslateX() {
-      const box = document.getElementsByClassName("work-box");
-      if (box.length === 0) return;
-      const rectLeft = document
-        .querySelector(".work-container")!
-        .getBoundingClientRect().left;
-      const rect = box[0].getBoundingClientRect();
-      const parentWidth = box[0].parentElement!.getBoundingClientRect().width;
-      const padding = parseInt(window.getComputedStyle(box[0]).padding) / 2;
-      translateX = rect.width * box.length - (rectLeft + parentWidth) + padding;
-    }
+      // Reset transform before measuring to ensure accurate bounding rect
+      gsap.set(workFlex, { x: 0 });
 
-    setTranslateX();
+      const ctaRect = ctaBox.getBoundingClientRect();
+      // Center the CTA box in the viewport
+      const targetLeft = Math.max((window.innerWidth - ctaBox.offsetWidth) / 2, 80);
+      const translateX = Math.max(ctaRect.left - targetLeft, 0);
 
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".work-section",
-        start: "top top",
-        end: `+=${translateX}`,
-        scrub: 1,
-        pin: true,
-        pinSpacing: true,
-        anticipatePin: 1,
-        id: "work",
-        invalidateOnRefresh: true,
-      },
-    });
+      // Add a hold / pause distance so "Want to see more?" stays pinned and centered
+      // before the next section arrives
+      const holdDistance = Math.min(window.innerHeight * 0.6, 500);
+      const totalScroll = translateX + holdDistance;
 
-    timeline.to(".work-flex", {
-      x: -translateX,
-      ease: "none",
-    });
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".work-section",
+          start: "top top",
+          end: `+=${totalScroll}`,
+          scrub: 1,
+          pin: true,
+          pinSpacing: true,
+          anticipatePin: 1,
+          id: "work",
+          invalidateOnRefresh: true,
+        },
+      });
 
-    // Refresh ScrollTrigger after layout settles
-    ScrollTrigger.refresh();
+      // 1. Horizontal scroll until "Want to see more?" is centered
+      timeline.to(workFlex, {
+        x: -translateX,
+        ease: "none",
+        duration: translateX,
+      });
 
-    // Clean up
+      // 2. Hold pinned in place for holdDistance so user can view/click "Explore"
+      timeline.to({}, {
+        duration: holdDistance,
+      });
+
+      return timeline;
+    };
+
+    let timeline = setupScroll();
+
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 200);
+
+    const onResize = () => {
+      timeline?.kill();
+      ScrollTrigger.getById("work")?.kill();
+      timeline = setupScroll();
+      ScrollTrigger.refresh();
+    };
+
+    window.addEventListener("resize", onResize);
+
     return () => {
-      timeline.kill();
+      clearTimeout(timer);
+      window.removeEventListener("resize", onResize);
+      timeline?.kill();
       ScrollTrigger.getById("work")?.kill();
     };
   }, [projects]);

@@ -128,6 +128,7 @@ const Scene = () => {
       };
       animate();
       return () => {
+        light.cleanup();
         clearTimeout(debounce);
         scene.clear();
         renderer.dispose();

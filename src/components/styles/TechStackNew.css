@@ -122,9 +122,9 @@
 
 .techstack-item:hover {
   transform: translateY(-6px) scale(1.08);
-  background: rgba(194, 164, 255, 0.1);
+  background: rgba(var(--accentRgba, 194, 164, 255), 0.12);
   border-color: var(--accentColor);
-  box-shadow: 0 8px 30px rgba(194, 164, 255, 0.25);
+  box-shadow: 0 8px 30px rgba(var(--accentRgba, 194, 164, 255), 0.3);
 }
 
 .techstack-item img {

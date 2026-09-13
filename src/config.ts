@@ -101,36 +101,49 @@ export const config = {
     ],
     projects: [
         {
+            id: 1,
+            title: "Campus Check-In Attendance Management System",
+            category: "Full-Stack / EdTech",
+            technologies: "React 18, TypeScript, Node.js, Express, MongoDB, JWT Auth, REST APIs",
+            image: "/images/project-1.webp",
+            url: "https://github.com/Sensui-moksha/campus-check-in-Attendance-Managment-System",
+            description: "A modern full-stack attendance management system for educational institutions. Features role-based access control (Admin, Principal, HOD, Teacher, Student), real-time attendance marking, bulk CSV uploads, analytics & reports, automated promotions, and 120+ REST APIs."
+        },
+        {
             id: 2,
-            title: "VoteChain",
-            category: "Blockchain",
-            technologies: "Solidity, Web3.js, React, Ethereum, IPFS, MetaMask, Node.js",
-            image: "/images/votechain.png",
-            description: "A decentralized election system built on blockchain technology ensuring transparent, tamper-proof, and verifiable voting. Features smart contracts for vote integrity and real-time result tracking."
+            title: "CIVIC-RESOLVE-CHAIN (DeFix)",
+            category: "Blockchain / Web3",
+            technologies: "TypeScript, Aptos Blockchain, Move, IPFS, Interactive Maps, React",
+            image: "/images/project-2.webp",
+            url: "https://github.com/Sensui-moksha/CIVIC-RESOLVE-CHAIN",
+            description: "A decentralized civic platform empowering communities to document and resolve local civic issues using blockchain technology. Combines interactive maps, immutable IPFS storage, and Aptos blockchain to create transparent, tamper-proof problem tracking."
         },
         {
             id: 3,
-            title: "EIE - Earthquake Impact Estimator",
-            category: "IoT / Hardware",
-            technologies: "Arduino, C++, IoT Sensors, Python, ML, React",
-            image: "/images/eie.png",
-            description: "A practical circuit-based IoT system utilizing Arduino to predict earthquakes before they strike. Integrates hardware sensors for real-time seismic detection and impact estimation."
+            title: "NFT Achievement System",
+            category: "Blockchain / Web3",
+            technologies: "TypeScript, Aptos, Web3, Smart Contracts, React",
+            image: "/images/project-3.webp",
+            url: "https://github.com/Sensui-moksha/NFT-Achievement-System",
+            description: "A decentralized achievement credential platform using blockchain to issue verifiable, tamper-proof digital badges as NFTs for milestones in education, technical events, and hackathons."
         },
         {
-            id: 6,
-            title: "Floodhub",
-            category: "AI / ML",
-            technologies: "Python, TensorFlow, Pandas, React, FastAPI, GIS",
-            image: "/images/floodhub.png",
-            description: "A flood prediction model specifically designed for Hyderabad's river systems. Analyzes weather patterns, water levels, and historical data to provide accurate flood forecasts and alerts."
+            id: 4,
+            title: "Weather Forecast Web App",
+            category: "Frontend / API",
+            technologies: "JavaScript, HTML5, CSS3, OpenWeather REST API",
+            image: "/images/project-4.webp",
+            url: "https://github.com/Sensui-moksha/Weather-Forecast",
+            description: "A clean and responsive weather application delivering real-time weather analytics, multi-city forecasts, and atmospheric indicators powered by public REST APIs."
         },
         {
-            id: 8,
-            title: "HekTools",
-            category: "Security / Android",
-            technologies: "Kotlin, Android SDK, Firebase, Python, Encryption",
-            image: "/images/hektools.png",
-            description: "An advanced Android monitoring and security research tool. Features remote device management, activity logging, and encrypted data transmission for security testing purposes."
+            id: 5,
+            title: "Aptos D-App",
+            category: "Blockchain / Smart Contracts",
+            technologies: "Move, TypeScript, Aptos SDK, React, Petra Wallet",
+            image: "/images/project-5.webp",
+            url: "https://github.com/Sensui-moksha/Aptos-D-app",
+            description: "A decentralized Web3 application built on the Aptos network utilizing Move smart contracts and modern wallet integrations for secure on-chain interactions."
         }
     ],
     contact: {

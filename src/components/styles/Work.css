@@ -309,9 +309,10 @@
 
 /* See All Works CTA Box */
 .work-box-cta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
   border-right: none;
 }
 
@@ -351,7 +352,7 @@
 
 .see-all-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(194, 164, 255, 0.4);
+  box-shadow: 0 10px 30px rgba(var(--accentRgba, 194, 164, 255), 0.5);
 }
 
 /* Mobile: Stack work items vertically — normal scroll, no zig-zag */
