@@ -112,4 +112,4 @@ public/resume/resume.pdf
 
 ## 🪪 License
 
-This project is open source and available under the **MIT License**. See [LICENSE](LICENSE).
+This project is open source and available under the **MIT License**. See [LICENSE](LICENSE)..
