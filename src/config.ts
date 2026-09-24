@@ -58,7 +58,7 @@ export const config = {
             technologies: ["React", "Node.js", "MongoDB", "Express", "Next.js", "TypeScript"]
         },
         {
-            position: "B.Sc. Computer Science Engineering",
+            position: "B.TECH. Computer Science Engineering",
             company: "MIC College of Technology",
             period: "2023 - 2027",
             location: "Andhra Pradesh",

@@ -49,7 +49,7 @@ I'm a Computer Science Engineering student at **MIC College of Technology**, pas
 
 | Year | Institution |
 |---|---|
-| 2023 – 2027 | B.Sc. CSE — MIC College of Technology, AP |
+| 2023 – 2027 | B.TECH. CSE — MIC College of Technology, AP |
 | 2021 – 2023 | Intermediate (MPC) — Little Flower Junior College, Hyderabad |
 | 2021 | High School — Sree Akshara School, Hyderabad |
 
