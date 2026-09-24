@@ -688,6 +688,88 @@
   opacity: 0.8;
 }
 
+/* Privacy & Confidentiality Disclaimer Notice */
+.org-privacy-notice {
+  margin-top: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(var(--accentRgba, 194, 164, 255), 0.25);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: relative;
+  z-index: 10;
+  transform: translateZ(16px);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.org-privacy-notice:hover {
+  background: rgba(var(--accentRgba, 194, 164, 255), 0.04);
+  border-color: rgba(var(--accentRgba, 194, 164, 255), 0.45);
+}
+
+.org-privacy-icon-box {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(var(--accentRgba, 194, 164, 255), 0.08);
+  border: 1px solid rgba(var(--accentRgba, 194, 164, 255), 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.org-privacy-icon {
+  font-size: 14px;
+  color: var(--accentColor);
+}
+
+.org-privacy-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.org-privacy-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.org-privacy-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.3px;
+}
+
+.org-privacy-tag {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--accentColor);
+  background: rgba(var(--accentRgba, 194, 164, 255), 0.1);
+  border: 1px solid rgba(var(--accentRgba, 194, 164, 255), 0.25);
+  padding: 2px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.org-privacy-desc {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+  font-weight: 300;
+}
+
 /* Responsive adjustments */
 @media screen and (max-width: 900px) {
   .orgs-heading {
@@ -765,6 +847,26 @@
   .org-repos-grid {
     grid-template-columns: 1fr;
   }
+
+  .org-privacy-notice {
+    padding: 14px 16px;
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .org-privacy-icon-box {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+  }
+
+  .org-privacy-title {
+    font-size: 12px;
+  }
+
+  .org-privacy-desc {
+    font-size: 11.5px;
+  }
 }
 
 /* Reduced motion and touch devices gracefully disable 3D tilt */
@@ -781,7 +883,8 @@
   .org-description,
   .org-meta-row,
   .org-members-section,
-  .org-repos-container {
+  .org-repos-container,
+  .org-privacy-notice {
     transform: none !important;
   }
 }

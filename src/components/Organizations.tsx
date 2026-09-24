@@ -3,7 +3,7 @@ import "./styles/Organizations.css";
 import { config, OrganizationItem, OrgRepoItem, OrgMemberItem } from "../config";
 import { playButtonClick } from "../utils/audio";
 import { VscOrganization, VscRepo } from "react-icons/vsc";
-import { FaGithub, FaLocationDot, FaCodeBranch, FaUsers, FaStar } from "react-icons/fa6";
+import { FaGithub, FaLocationDot, FaCodeBranch, FaUsers, FaStar, FaLock } from "react-icons/fa6";
 import { MdArrowOutward } from "react-icons/md";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -556,6 +556,22 @@ const Organizations = () => {
                   </div>
                 </div>
               )}
+
+              {/* Repository Confidentiality & Privacy Notice */}
+              <div className="org-privacy-notice">
+                <div className="org-privacy-icon-box">
+                  <FaLock className="org-privacy-icon" />
+                </div>
+                <div className="org-privacy-text-content">
+                  <div className="org-privacy-header">
+                    <span className="org-privacy-title">Confidentiality &amp; Repository Visibility</span>
+                    <span className="org-privacy-tag">Access Controlled</span>
+                  </div>
+                  <p className="org-privacy-desc">
+                    Only public repositories and open-source contributions are displayed. Internal production codebases, proprietary tools, and private organization repositories remain confidential under GitHub access control policies.
+                  </p>
+                </div>
+              </div>
             </div>
           ))}
         </div>

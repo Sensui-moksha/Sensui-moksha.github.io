@@ -8,6 +8,7 @@ const WhatIDo = () => {
   const setRef = (el: HTMLDivElement | null, index: number) => {
     containerRef.current[index] = el;
   };
+
   useEffect(() => {
     const containers = containerRef.current.filter(Boolean) as HTMLDivElement[];
     const handlers = new Map<HTMLDivElement, () => void>();
@@ -29,6 +30,7 @@ const WhatIDo = () => {
       });
     };
   }, []);
+
   return (
     <div className="whatIDO">
       <div className="what-box">
@@ -42,7 +44,7 @@ const WhatIDo = () => {
       <div className="what-box">
         <div className="what-box-in">
           <div className="what-border2">
-            <svg width="100%">
+            <svg width="100%" height="100%">
               <line
                 x1="0"
                 y1="0"
@@ -68,7 +70,7 @@ const WhatIDo = () => {
             ref={(el) => setRef(el, 0)}
           >
             <div className="what-border1">
-              <svg height="100%">
+              <svg width="100%" height="100%">
                 <line
                   x1="0"
                   y1="0"
@@ -94,13 +96,13 @@ const WhatIDo = () => {
             <div className="what-content-in">
               <h3>{config.skills.develop.title}</h3>
               <h4>{config.skills.develop.description}</h4>
-              <p>
-                {config.skills.develop.details}
-              </p>
-              <h5>Skillset & tools</h5>
+              <p>{config.skills.develop.details}</p>
+              <h5>Skillset &amp; tools</h5>
               <div className="what-content-flex">
                 {config.skills.develop.tools.map((tool, index) => (
-                  <div key={index} className="what-tags">{tool}</div>
+                  <div key={index} className="what-tags">
+                    {tool}
+                  </div>
                 ))}
               </div>
               <div className="what-arrow"></div>
@@ -111,7 +113,7 @@ const WhatIDo = () => {
             ref={(el) => setRef(el, 1)}
           >
             <div className="what-border1">
-              <svg height="100%">
+              <svg width="100%" height="100%">
                 <line
                   x1="0"
                   y1="100%"
@@ -127,13 +129,13 @@ const WhatIDo = () => {
             <div className="what-content-in">
               <h3>{config.skills.design.title}</h3>
               <h4>{config.skills.design.description}</h4>
-              <p>
-                {config.skills.design.details}
-              </p>
-              <h5>Skillset & tools</h5>
+              <p>{config.skills.design.details}</p>
+              <h5>Skillset &amp; tools</h5>
               <div className="what-content-flex">
                 {config.skills.design.tools.map((tool, index) => (
-                  <div key={index} className="what-tags">{tool}</div>
+                  <div key={index} className="what-tags">
+                    {tool}
+                  </div>
                 ))}
               </div>
               <div className="what-arrow"></div>
