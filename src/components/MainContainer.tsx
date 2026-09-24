@@ -8,6 +8,7 @@ import Navbar from "./Navbar";
 import SocialIcons from "./SocialIcons";
 import WhatIDo from "./WhatIDo";
 import Work from "./Work";
+import Organizations from "./Organizations";
 import TechStackNew from "./TechStackNew";
 import CallToAction from "./CallToAction";
 import Terminal from "./Terminal";
@@ -47,7 +48,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
       window.removeEventListener("open-terminal", handleOpenTerminal);
       window.removeEventListener("resize", resizeHandler);
     };
-  }, [isDesktopView]);
+  }, []);
 
   return (
     <div className="container-main">
@@ -65,6 +66,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
         <WhatIDo />
         <Career />
         <Work />
+        <Organizations />
         <TechStackNew />
         <CallToAction />
         <Contact />

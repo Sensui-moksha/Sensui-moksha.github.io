@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import setCharacter from "./utils/character";
 import setLighting from "./utils/lighting";
@@ -16,16 +16,15 @@ import { setProgress } from "../Loading";
 const Scene = () => {
   const canvasDiv = useRef<HTMLDivElement | null>(null);
   const hoverDivRef = useRef<HTMLDivElement>(null);
-  const sceneRef = useRef(new THREE.Scene());
   const { setLoading } = useLoading();
 
-  const [character, setChar] = useState<THREE.Object3D | null>(null);
   useEffect(() => {
     if (canvasDiv.current) {
-      let rect = canvasDiv.current.getBoundingClientRect();
-      let container = { width: rect.width, height: rect.height };
+      let isCancelled = false;
+      const rect = canvasDiv.current.getBoundingClientRect();
+      const container = { width: rect.width, height: rect.height };
       const aspect = container.width / container.height;
-      const scene = sceneRef.current;
+      const scene = new THREE.Scene();
 
       const renderer = new THREE.WebGLRenderer({
         alpha: true,
@@ -36,6 +35,10 @@ const Scene = () => {
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 1;
+
+      // Remove any lingering canvas elements before appending
+      const existingCanvases = canvasDiv.current.querySelectorAll("canvas");
+      existingCanvases.forEach((c) => c.remove());
       canvasDiv.current.appendChild(renderer.domElement);
 
       const camera = new THREE.PerspectiveCamera(14.5, aspect, 0.1, 1000);
@@ -51,29 +54,43 @@ const Scene = () => {
       const clock = new THREE.Clock();
 
       const light = setLighting(scene);
-      let progress = setProgress((value) => setLoading(value));
+      const progress = setProgress((value) => setLoading(value));
       const { loadCharacter } = setCharacter(renderer, scene, camera);
 
+      let introTimer: ReturnType<typeof setTimeout> | undefined;
+      let handleWindowResize: (() => void) | undefined;
+
       loadCharacter().then((gltf) => {
-        if (gltf) {
-          const animations = setAnimations(gltf);
-          hoverDivRef.current && animations.hover(gltf, hoverDivRef.current);
-          mixer = animations.mixer;
-          let character = gltf.scene;
-          setChar(character);
-          scene.add(character);
-          headBone = character.getObjectByName("spine006") || null;
-          screenLight = character.getObjectByName("screenlight") || null;
-          progress.loaded().then(() => {
-            setTimeout(() => {
-              light.turnOnLights();
-              animations.startIntro();
-            }, 2500);
-          });
-          window.addEventListener("resize", () =>
-            handleResize(renderer, camera, canvasDiv, character)
-          );
+        if (isCancelled || !gltf) {
+          if (gltf) {
+            scene.remove(gltf.scene);
+          }
+          return;
         }
+
+        const animations = setAnimations(gltf);
+        hoverDivRef.current && animations.hover(gltf, hoverDivRef.current);
+        mixer = animations.mixer;
+        const character = gltf.scene;
+
+        // Ensure character is only added once
+        if (!scene.children.includes(character)) {
+          scene.add(character);
+        }
+
+        headBone = character.getObjectByName("spine006") || null;
+        screenLight = character.getObjectByName("screenlight") || null;
+        progress.loaded().then(() => {
+          if (isCancelled) return;
+          introTimer = setTimeout(() => {
+            if (isCancelled) return;
+            light.turnOnLights();
+            animations.startIntro();
+          }, 2500);
+        });
+        handleWindowResize = () =>
+          handleResize(renderer, camera, canvasDiv, character);
+        window.addEventListener("resize", handleWindowResize);
       });
 
       let mouse = { x: 0, y: 0 },
@@ -82,12 +99,14 @@ const Scene = () => {
       const onMouseMove = (event: MouseEvent) => {
         handleMouseMove(event, (x, y) => (mouse = { x, y }));
       };
-      let debounce: number | undefined;
+      let debounce: ReturnType<typeof setTimeout> | undefined;
       const onTouchStart = (event: TouchEvent) => {
         const element = event.target as HTMLElement;
         debounce = setTimeout(() => {
-          element?.addEventListener("touchmove", (e: TouchEvent) =>
-            handleTouchMove(e, (x, y) => (mouse = { x, y }))
+          element?.addEventListener(
+            "touchmove",
+            (e: TouchEvent) => handleTouchMove(e, (x, y) => (mouse = { x, y })),
+            { passive: true }
           );
         }, 200);
       };
@@ -99,16 +118,16 @@ const Scene = () => {
         });
       };
 
-      document.addEventListener("mousemove", (event) => {
-        onMouseMove(event);
-      });
+      document.addEventListener("mousemove", onMouseMove, { passive: true });
       const landingDiv = document.getElementById("landingDiv");
       if (landingDiv) {
-        landingDiv.addEventListener("touchstart", onTouchStart);
-        landingDiv.addEventListener("touchend", onTouchEnd);
+        landingDiv.addEventListener("touchstart", onTouchStart, { passive: true });
+        landingDiv.addEventListener("touchend", onTouchEnd, { passive: true });
       }
+
+      let animFrameId: number;
       const animate = () => {
-        requestAnimationFrame(animate);
+        animFrameId = requestAnimationFrame(animate);
         if (headBone) {
           handleHeadRotation(
             headBone,
@@ -127,19 +146,26 @@ const Scene = () => {
         renderer.render(scene, camera);
       };
       animate();
+
+      const containerEl = canvasDiv.current;
+
       return () => {
+        isCancelled = true;
+        progress.cancel();
+        cancelAnimationFrame(animFrameId);
         light.cleanup();
         clearTimeout(debounce);
+        clearTimeout(introTimer);
         scene.clear();
         renderer.dispose();
-        window.removeEventListener("resize", () =>
-          handleResize(renderer, camera, canvasDiv, character!)
-        );
-        if (canvasDiv.current) {
-          canvasDiv.current.removeChild(renderer.domElement);
+        if (handleWindowResize) {
+          window.removeEventListener("resize", handleWindowResize);
         }
+        if (containerEl && renderer.domElement && containerEl.contains(renderer.domElement)) {
+          containerEl.removeChild(renderer.domElement);
+        }
+        document.removeEventListener("mousemove", onMouseMove);
         if (landingDiv) {
-          document.removeEventListener("mousemove", onMouseMove);
           landingDiv.removeEventListener("touchstart", onTouchStart);
           landingDiv.removeEventListener("touchend", onTouchEnd);
         }

@@ -71,8 +71,8 @@
     padding: 35px 0px;
   }
   .header ul {
-    column-gap: 80px;
-    font-size: 16px;
+    column-gap: 48px;
+    font-size: 15px;
   }
   .navbar-connect {
     font-size: 16px;
@@ -189,10 +189,13 @@
 
 @media only screen and (max-width: 768px) {
   .navbar-theme-picker {
-    display: none;
+    display: none !important;
   }
-  .navbar-terminal-text {
-    display: none;
+  .navbar-terminal-btn {
+    display: none !important;
+  }
+  .navbar-sound-btn {
+    display: none !important;
   }
   .navbar-right {
     gap: 12px;

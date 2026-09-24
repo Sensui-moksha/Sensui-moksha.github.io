@@ -45,9 +45,11 @@ const setCharacter = (
             character!.getObjectByName("footR")!.position.y = 3.36;
             character!.getObjectByName("footL")!.position.y = 3.36;
             dracoLoader.dispose();
+            URL.revokeObjectURL(blobUrl);
           },
           undefined,
           (error) => {
+            URL.revokeObjectURL(blobUrl);
             console.error("Error loading GLTF model:", error);
             reject(error);
           }

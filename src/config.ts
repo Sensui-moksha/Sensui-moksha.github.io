@@ -62,7 +62,7 @@ export const config = {
             company: "MIC College of Technology",
             period: "2023 - 2027",
             location: "Andhra Pradesh",
-            description: "Pursuing a Bachelor of Science in Computer Science Engineering at MIC College of Technology, Andhra Pradesh. Deepening expertise in data structures, algorithms, software engineering, and modern AI/ML while building real-world projects.",
+            description: "Pursuing a Bachelor of Technology in Computer Science Engineering at MIC College of Technology, Andhra Pradesh. Deepening expertise in data structures, algorithms, software engineering, and modern AI/ML while building real-world projects.",
             responsibilities: [
                 "Studying core CS fundamentals — algorithms, OS, DBMS, and networking",
                 "Applying machine learning and AI concepts to academic and personal projects",
@@ -146,6 +146,56 @@ export const config = {
             description: "A decentralized Web3 application built on the Aptos network utilizing Move smart contracts and modern wallet integrations for secure on-chain interactions."
         }
     ],
+    organizations: [
+        {
+            id: 301406795,
+            name: "Cryoflake",
+            login: "Cryoflake",
+            role: "Core Contributor & Member",
+            url: "https://github.com/Cryoflake",
+            avatarUrl: "https://avatars.githubusercontent.com/u/301406795?v=4",
+            description: "Collaborative software engineering organization focused on building modern web applications, production services, and technical documentation.",
+            location: "India",
+            email: "teamcryoflake@gmail.com",
+            publicRepos: 2,
+            membersCount: 2,
+            verified: true,
+            members: [
+                {
+                    login: "0xraiven",
+                    avatarUrl: "https://avatars.githubusercontent.com/u/101498672?v=4",
+                    url: "https://github.com/0xraiven",
+                    role: "Organization Member"
+                },
+                {
+                    login: "Sensui-moksha",
+                    avatarUrl: "https://avatars.githubusercontent.com/u/114905086?v=4",
+                    url: "https://github.com/Sensui-moksha",
+                    role: "Core Contributor (You)"
+                }
+            ],
+            repositories: [
+                {
+                    name: "swati-docs",
+                    description: "Full current work documentation for the swatipublications web-application",
+                    url: "https://github.com/Cryoflake/swati-docs",
+                    language: "Documentation / Web",
+                    stars: 0,
+                    forks: 0,
+                    pushedAt: "2026-09-22T06:30:01Z"
+                },
+                {
+                    name: "cryoflake.github.io",
+                    description: "Official GitHub organization portal and digital landing space for Cryoflake initiatives.",
+                    url: "https://github.com/Cryoflake/cryoflake.github.io",
+                    language: "Web Portal",
+                    stars: 0,
+                    forks: 0,
+                    pushedAt: "2026-09-13T08:04:49Z"
+                }
+            ]
+        }
+    ],
     contact: {
         email: "d.mokshyagnayadav@gmail.com",
         github: "https://github.com/Sensui-moksha",
@@ -167,5 +217,41 @@ export const config = {
         }
     }
 };
+
+export interface OrgMemberItem {
+    login: string;
+    avatarUrl: string;
+    url: string;
+    role?: string;
+}
+
+export interface OrgRepoItem {
+    name: string;
+    description: string;
+    url: string;
+    language?: string;
+    stars?: number;
+    forks?: number;
+    pushedAt?: string;
+    updatedAt?: string;
+}
+
+export interface OrganizationItem {
+    id: string | number;
+    name: string;
+    login: string;
+    role: string;
+    avatarUrl: string;
+    url: string;
+    description: string;
+    location?: string;
+    email?: string;
+    publicRepos?: number;
+    membersCount?: number;
+    verified?: boolean;
+    members?: OrgMemberItem[];
+    repositories?: OrgRepoItem[];
+}
+
 
 

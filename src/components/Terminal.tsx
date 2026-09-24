@@ -205,6 +205,7 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
             <div>• <strong style={{ color: "var(--accentColor)" }}>about</strong> : Learn about Mokshyagna &amp; background</div>
             <div>• <strong style={{ color: "var(--accentColor)" }}>skills</strong> : List technical skills and tools</div>
             <div>• <strong style={{ color: "var(--accentColor)" }}>projects</strong> : View my verified software and engineering projects</div>
+            <div>• <strong style={{ color: "var(--accentColor)" }}>orgs</strong> : View GitHub organizations &amp; team collaborations</div>
             <div>• <strong style={{ color: "var(--accentColor)" }}>experience</strong> : View career timeline and education</div>
             <div>• <strong style={{ color: "var(--accentColor)" }}>contact</strong> : Get email, GitHub, LinkedIn, and Instagram</div>
             <div>• <strong style={{ color: "var(--accentColor)" }}>resume</strong> : View or download resume</div>
@@ -287,6 +288,98 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
         );
         break;
 
+      case "orgs":
+      case "organizations":
+      case "org":
+        output = (
+          <div>
+            <div style={{ color: "var(--accentColor)", fontWeight: "600", marginBottom: "8px" }}>
+              GitHub Organizations &amp; Team Collaborations:
+            </div>
+            {config.organizations.map((org) => (
+              <div
+                key={org.id}
+                style={{
+                  marginBottom: "14px",
+                  paddingBottom: "10px",
+                  borderBottom: "1px dashed rgba(255,255,255,0.1)",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    flexWrap: "wrap",
+                    gap: "6px",
+                  }}
+                >
+                  <span style={{ color: "var(--accentColor)", fontWeight: "600", fontSize: "14px" }}>
+                    🏢 {org.name} (@{org.login})
+                  </span>
+                  <span
+                    style={{
+                      fontSize: "11px",
+                      color: "var(--accentColor)",
+                      background: "rgba(var(--accentRgba, 194, 164, 255), 0.12)",
+                      padding: "2px 8px",
+                      borderRadius: "10px",
+                      border: "1px solid rgba(var(--accentRgba, 194, 164, 255), 0.25)",
+                    }}
+                  >
+                    {org.role}
+                  </span>
+                </div>
+                <div style={{ fontSize: "12.5px", color: "rgba(255,255,255,0.85)", marginTop: "4px" }}>
+                  {org.description}
+                </div>
+                <div style={{ fontSize: "11.5px", color: "#aaa", marginTop: "3px" }}>
+                  📍 {org.location || "India"} &nbsp;|&nbsp; 📦 {org.publicRepos} Public Repositories &nbsp;|&nbsp; 👥 {org.membersCount} Members
+                </div>
+                {org.members && org.members.length > 0 && (
+                  <div style={{ fontSize: "11.5px", color: "rgba(255,255,255,0.75)", marginTop: "3px" }}>
+                    👥 <strong style={{ color: "var(--accentColor)" }}>Collaborators:</strong>{" "}
+                    {org.members.map((m) => `@${m.login}`).join(", ")}
+                  </div>
+                )}
+                {org.repositories && org.repositories.length > 0 && (
+                  <div style={{ marginTop: "6px" }}>
+                    <div style={{ fontSize: "11px", color: "var(--accentColor)", fontWeight: "500" }}>
+                      Featured Projects:
+                    </div>
+                    <ul style={{ margin: "4px 0 0 16px", padding: 0, fontSize: "12px", color: "rgba(255,255,255,0.8)" }}>
+                      {org.repositories.map((repo) => (
+                        <li key={repo.name} style={{ marginBottom: "2px" }}>
+                          <a
+                            href={repo.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            style={{ color: "var(--accentColor)", textDecoration: "underline" }}
+                          >
+                            {repo.name}
+                          </a>
+                          {" "}- {repo.description}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                <div style={{ marginTop: "6px" }}>
+                  <a
+                    href={org.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ fontSize: "12px", color: "var(--accentColor)", fontWeight: "500" }}
+                  >
+                    Visit Organization on GitHub ↗
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        );
+        break;
+
       case "experience":
         output = (
           <div>
@@ -343,10 +436,11 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
         }
         break;
 
-      case "sound":
+      case "sound": {
         const enabled = toggleSound();
         output = <div>UI Sound Effects: <strong style={{ color: enabled ? "#4ade80" : "#ff5f56" }}>{enabled ? "ENABLED" : "MUTED"}</strong></div>;
         break;
+      }
 
       case "matrix": {
         const next = !isMatrixActive;

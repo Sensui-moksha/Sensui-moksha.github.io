@@ -48,17 +48,19 @@ const Navbar = () => {
     lenis.on("scroll", ScrollTrigger.update);
 
     // Handle smooth scroll animation frame
+    let rafId: number;
     function raf(time: number) {
       lenis?.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     // Handle navigation links
+    const cleanupLinks: (() => void)[] = [];
     const links = document.querySelectorAll(".header ul a");
     links.forEach((elem) => {
       const element = elem as HTMLAnchorElement;
-      element.addEventListener("click", (e) => {
+      const handleClick = (e: MouseEvent) => {
         if (window.innerWidth > 1024) {
           e.preventDefault();
           const targetElem = e.currentTarget as HTMLAnchorElement;
@@ -73,7 +75,9 @@ const Navbar = () => {
             }
           }
         }
-      });
+      };
+      element.addEventListener("click", handleClick);
+      cleanupLinks.push(() => element.removeEventListener("click", handleClick));
     });
 
     // Handle resize
@@ -83,6 +87,8 @@ const Navbar = () => {
     window.addEventListener("resize", handleResize);
 
     return () => {
+      cancelAnimationFrame(rafId);
+      cleanupLinks.forEach((fn) => fn());
       window.removeEventListener("accent-theme-change", handleThemeChange);
       window.removeEventListener("resize", handleResize);
       lenis?.destroy();
@@ -161,6 +167,11 @@ const Navbar = () => {
             <li>
               <a data-href="#work" href="#work">
                 <HoverLinks text="WORK" />
+              </a>
+            </li>
+            <li>
+              <a data-href="#organizations" href="#organizations">
+                <HoverLinks text="ORGS" />
               </a>
             </li>
             <li>

@@ -21,7 +21,14 @@ export const LoadingProvider = ({ children }: PropsWithChildren) => {
     if (window.innerWidth <= 768) return false;
     return true;
   });
-  const [loading, setLoading] = useState(0);
+  const [loading, setLoadingState] = useState(0);
+
+  const setLoading = (percent: number) => {
+    setLoadingState((prev) => {
+      // Monotonic guard: percentage can never decrease once it advances
+      return Math.min(100, Math.max(prev, Math.round(percent)));
+    });
+  };
 
   const value = {
     isLoading,

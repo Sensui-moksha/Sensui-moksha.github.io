@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./styles/Loading.css";
 import { useLoading } from "../context/LoadingProvider";
 
@@ -9,29 +9,50 @@ const Loading = ({ percent }: { percent: number }) => {
   const [loaded, setLoaded] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [clicked, setClicked] = useState(false);
+  const hasCompletedRef = useRef(false);
 
-  if (percent >= 100) {
-    setTimeout(() => {
-      setLoaded(true);
-      setTimeout(() => {
-        setIsLoaded(true);
-      }, 1000);
-    }, 600);
-  }
+  // Transition to "Welcome" and open strictly when percent reaches 100%
+  useEffect(() => {
+    if (percent >= 100 && !hasCompletedRef.current) {
+      hasCompletedRef.current = true;
+
+      // Allow user to clearly see 100%, then transition button to "Welcome"
+      const welcomeTimer = setTimeout(() => {
+        setLoaded(true);
+
+        // Show "Welcome" briefly, then trigger the expansion animation
+        const openTimer = setTimeout(() => {
+          setIsLoaded(true);
+        }, 800);
+
+        return () => clearTimeout(openTimer);
+      }, 400);
+
+      return () => clearTimeout(welcomeTimer);
+    }
+  }, [percent]);
 
   useEffect(() => {
+    if (!isLoaded) return;
+    setClicked(true);
+    let isCancelled = false;
+
     import("./utils/initialFX").then((module) => {
-      if (isLoaded) {
-        setClicked(true);
-        setTimeout(() => {
-          if (module.initialFX) {
-            module.initialFX();
-          }
-          setIsLoading(false);
-        }, 900);
-      }
+      if (isCancelled) return;
+      const revealTimer = setTimeout(() => {
+        if (module.initialFX) {
+          module.initialFX();
+        }
+        setIsLoading(false);
+      }, 900);
+
+      return () => clearTimeout(revealTimer);
     });
-  }, [isLoaded]);
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [isLoaded, setIsLoading]);
 
   function handleMouseMove(e: React.MouseEvent<HTMLElement>) {
     const { currentTarget: target } = e;
@@ -85,42 +106,69 @@ export default Loading;
 
 export const setProgress = (setLoading: (value: number) => void) => {
   let percent: number = 0;
+  let interval: ReturnType<typeof setInterval> | null = null;
+  let isDone = false;
 
-  let interval = setInterval(() => {
+  interval = setInterval(() => {
+    if (isDone) return;
     if (percent <= 50) {
-      let rand = Math.round(Math.random() * 5);
-      percent = percent + rand;
+      const rand = Math.round(Math.random() * 5);
+      percent = Math.min(50, percent + rand);
       setLoading(percent);
     } else {
-      clearInterval(interval);
+      if (interval) clearInterval(interval);
       interval = setInterval(() => {
-        percent = percent + Math.round(Math.random());
+        if (isDone) return;
+        percent = Math.min(92, percent + Math.round(Math.random()));
         setLoading(percent);
-        if (percent > 91) {
-          clearInterval(interval);
+        if (percent >= 92) {
+          if (interval) clearInterval(interval);
+          interval = null;
         }
-      }, 2000);
+      }, 1500);
     }
   }, 100);
 
+  function cancel() {
+    isDone = true;
+    if (interval) {
+      clearInterval(interval);
+      interval = null;
+    }
+  }
+
   function clear() {
-    clearInterval(interval);
+    isDone = true;
+    if (interval) {
+      clearInterval(interval);
+      interval = null;
+    }
+    percent = 100;
     setLoading(100);
   }
 
   function loaded() {
     return new Promise<number>((resolve) => {
-      clearInterval(interval);
+      if (interval) clearInterval(interval);
+      if (percent >= 100) {
+        setLoading(100);
+        resolve(100);
+        return;
+      }
       interval = setInterval(() => {
         if (percent < 100) {
           percent++;
           setLoading(percent);
         } else {
-          resolve(percent);
-          clearInterval(interval);
+          isDone = true;
+          if (interval) clearInterval(interval);
+          interval = null;
+          percent = 100;
+          setLoading(100);
+          resolve(100);
         }
-      }, 2);
+      }, 6);
     });
   }
-  return { loaded, percent, clear };
+  return { loaded, get percent() { return percent; }, clear, cancel };
 };
