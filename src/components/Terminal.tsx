@@ -405,10 +405,10 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
         break;
 
       case "resume":
-        setTimeout(() => window.open("/resume/resume.pdf", "_blank"), 80);
+        window.dispatchEvent(new CustomEvent("open-resume"));
         output = (
           <div>
-            Opening resume in a new tab... (<a href="/resume/resume.pdf" target="_blank" rel="noreferrer">Click here if blocked</a>)
+            Opening in-browser resume viewer... (<a href="/resume/resume.pdf" target="_blank" rel="noreferrer">Direct PDF link</a>)
           </div>
         );
         break;

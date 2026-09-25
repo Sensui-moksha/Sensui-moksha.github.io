@@ -12,6 +12,8 @@ import Organizations from "./Organizations";
 import TechStackNew from "./TechStackNew";
 import CallToAction from "./CallToAction";
 import Terminal from "./Terminal";
+import ResumeModal from "./ResumeModal";
+import Toast from "./Toast";
 import setSplitText from "./utils/splitText";
 import { initTheme } from "../utils/theme";
 import { initGlobalAudioListeners } from "../utils/audio";
@@ -22,6 +24,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
   );
   const [isMobile] = useState<boolean>(window.innerWidth <= 768);
   const [isTerminalOpen, setIsTerminalOpen] = useState<boolean>(false);
+  const [isResumeOpen, setIsResumeOpen] = useState<boolean>(false);
 
   useEffect(() => {
     // Initialize saved theme accent
@@ -36,6 +39,12 @@ const MainContainer = ({ children }: PropsWithChildren) => {
     };
     window.addEventListener("open-terminal", handleOpenTerminal);
 
+    // Listen for resume preview requests
+    const handleOpenResume = () => {
+      setIsResumeOpen(true);
+    };
+    window.addEventListener("open-resume", handleOpenResume);
+
     const resizeHandler = () => {
       setSplitText();
       setIsDesktopView(window.innerWidth > 1024);
@@ -46,6 +55,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
     return () => {
       cleanupAudio();
       window.removeEventListener("open-terminal", handleOpenTerminal);
+      window.removeEventListener("open-resume", handleOpenResume);
       window.removeEventListener("resize", resizeHandler);
     };
   }, []);
@@ -59,6 +69,11 @@ const MainContainer = ({ children }: PropsWithChildren) => {
         isOpen={isTerminalOpen}
         onClose={() => setIsTerminalOpen(false)}
       />
+      <ResumeModal
+        isOpen={isResumeOpen}
+        onClose={() => setIsResumeOpen(false)}
+      />
+      <Toast />
       {isDesktopView && !isMobile && children}
       <div className="container-main">
         <Landing />
