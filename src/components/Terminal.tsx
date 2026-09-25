@@ -405,10 +405,10 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
         break;
 
       case "resume":
-        window.dispatchEvent(new CustomEvent("open-resume"));
+        setTimeout(() => window.open("/resume/resume.pdf", "_blank"), 80);
         output = (
           <div>
-            Opening in-browser resume viewer... (<a href="/resume/resume.pdf" target="_blank" rel="noreferrer">Direct PDF link</a>)
+            Opening resume in a new tab... (<a href="/resume/resume.pdf" target="_blank" rel="noreferrer">Click here if blocked</a>)
           </div>
         );
         break;
@@ -554,14 +554,14 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div 
+    <div
       className={`terminal-overlay ${isMatrixActive ? "matrix-mode-active" : ""}`}
       onClick={onClose}
       data-lenis-prevent="true"
       onWheel={(e) => e.stopPropagation()}
     >
       {isMatrixActive && <canvas ref={canvasRef} className="matrix-canvas" />}
-      <div 
+      <div
         className={`terminal-window ${isMatrixActive ? "matrix-window" : ""}`}
         onClick={(e) => {
           e.stopPropagation();
@@ -570,126 +570,126 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
         data-lenis-prevent="true"
         onWheel={(e) => e.stopPropagation()}
       >
-          {/* Top Bar */}
-          <div className="terminal-header">
-            <div className="terminal-controls">
-              <button
-                className="terminal-dot terminal-dot-close"
-                onClick={onClose}
-                title="Close"
-              />
-              <button
-                className="terminal-dot terminal-dot-min"
-                onClick={onClose}
-                title="Minimize"
-              />
-              <button
-                className="terminal-dot terminal-dot-max"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  executeCommand("help");
-                }}
-                title="Help"
-              />
-            </div>
-            <div className="terminal-title">
-              moksha@portfolio: <span className="terminal-title-accent">~</span> (bash)
-            </div>
-            <div className="terminal-close-hint">ESC or Cmd+K</div>
+        {/* Top Bar */}
+        <div className="terminal-header">
+          <div className="terminal-controls">
+            <button
+              className="terminal-dot terminal-dot-close"
+              onClick={onClose}
+              title="Close"
+            />
+            <button
+              className="terminal-dot terminal-dot-min"
+              onClick={onClose}
+              title="Minimize"
+            />
+            <button
+              className="terminal-dot terminal-dot-max"
+              onClick={(e) => {
+                e.stopPropagation();
+                executeCommand("help");
+              }}
+              title="Help"
+            />
+          </div>
+          <div className="terminal-title">
+            moksha@portfolio: <span className="terminal-title-accent">~</span> (bash)
+          </div>
+          <div className="terminal-close-hint">ESC or Cmd+K</div>
+        </div>
+
+        {/* Body */}
+        <div
+          className="terminal-body"
+          ref={bodyRef}
+          data-lenis-prevent="true"
+          onWheel={(e) => e.stopPropagation()}
+          onClick={() => inputRef.current?.focus()}
+        >
+          <pre className="terminal-banner">{ASCII_BANNER}</pre>
+          <div className="terminal-welcome-text">
+            Welcome to <span>Mokshyagna Yadav&apos;s</span> Interactive Terminal. Type <span>help</span> for available commands or tap a quick action below.
           </div>
 
-          {/* Body */}
-          <div 
-            className="terminal-body" 
-            ref={bodyRef}
-            data-lenis-prevent="true"
-            onWheel={(e) => e.stopPropagation()}
-            onClick={() => inputRef.current?.focus()}
-          >
-            <pre className="terminal-banner">{ASCII_BANNER}</pre>
-            <div className="terminal-welcome-text">
-              Welcome to <span>Mokshyagna Yadav&apos;s</span> Interactive Terminal. Type <span>help</span> for available commands or tap a quick action below.
-            </div>
-
-            {/* History */}
-            {history.map((entry, index) => (
-              <div key={index} className="terminal-entry">
-                <div className="terminal-command-line">
-                  <span className="terminal-prompt">visitor@moksha:~$</span>
-                  <span className="terminal-command-text">{entry.command}</span>
-                </div>
-                <div className="terminal-response">{entry.output}</div>
+          {/* History */}
+          {history.map((entry, index) => (
+            <div key={index} className="terminal-entry">
+              <div className="terminal-command-line">
+                <span className="terminal-prompt">visitor@moksha:~$</span>
+                <span className="terminal-command-text">{entry.command}</span>
               </div>
-            ))}
-
-            {/* Current Input */}
-            <div className="terminal-input-row">
-              <span className="terminal-prompt">visitor@moksha:~$</span>
-              <input
-                ref={inputRef}
-                type="text"
-                className="terminal-input"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={handleKeyDown}
-                autoFocus
-                spellCheck={false}
-                autoComplete="off"
-              />
+              <div className="terminal-response">{entry.output}</div>
             </div>
-          </div>
+          ))}
 
-          {/* Quick Action Chips */}
-          <div 
-            className="terminal-quick-chips"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <span className="terminal-chip-label">Quick:</span>
-            <button
-              className="terminal-chip"
-              onClick={() => executeCommand("help")}
-            >
-              help
-            </button>
-            <button
-              className="terminal-chip"
-              onClick={() => executeCommand("skills")}
-            >
-              skills
-            </button>
-            <button
-              className="terminal-chip"
-              onClick={() => executeCommand("projects")}
-            >
-              projects
-            </button>
-            <button
-              className="terminal-chip"
-              onClick={() => executeCommand("resume")}
-            >
-              resume
-            </button>
-            <button
-              className="terminal-chip"
-              onClick={() => executeCommand("theme cyan")}
-            >
-              theme cyan
-            </button>
-            <button
-              className="terminal-chip"
-              onClick={() => executeCommand("matrix")}
-            >
-              matrix
-            </button>
-            <button
-              className="terminal-chip terminal-chip-accent"
-              onClick={() => executeCommand("sudo hire moksha")}
-            >
-              sudo hire moksha
-            </button>
+          {/* Current Input */}
+          <div className="terminal-input-row">
+            <span className="terminal-prompt">visitor@moksha:~$</span>
+            <input
+              ref={inputRef}
+              type="text"
+              className="terminal-input"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              autoFocus
+              spellCheck={false}
+              autoComplete="off"
+            />
           </div>
         </div>
+
+        {/* Quick Action Chips */}
+        <div
+          className="terminal-quick-chips"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <span className="terminal-chip-label">Quick:</span>
+          <button
+            className="terminal-chip"
+            onClick={() => executeCommand("help")}
+          >
+            help
+          </button>
+          <button
+            className="terminal-chip"
+            onClick={() => executeCommand("skills")}
+          >
+            skills
+          </button>
+          <button
+            className="terminal-chip"
+            onClick={() => executeCommand("projects")}
+          >
+            projects
+          </button>
+          <button
+            className="terminal-chip"
+            onClick={() => executeCommand("resume")}
+          >
+            resume
+          </button>
+          <button
+            className="terminal-chip"
+            onClick={() => executeCommand("theme cyan")}
+          >
+            theme cyan
+          </button>
+          <button
+            className="terminal-chip"
+            onClick={() => executeCommand("matrix")}
+          >
+            matrix
+          </button>
+          <button
+            className="terminal-chip terminal-chip-accent"
+            onClick={() => executeCommand("sudo hire moksha")}
+          >
+            sudo hire moksha
+          </button>
+        </div>
       </div>
+    </div>
   );
 };
 

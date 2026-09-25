@@ -1,7 +1,6 @@
-import { MdArrowOutward, MdCopyright, MdContentCopy } from "react-icons/md";
+import { MdArrowOutward, MdCopyright } from "react-icons/md";
 import "./styles/Contact.css";
 import { config } from "../config";
-import { copyEmailToClipboard } from "../utils/toast";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect } from "react";
@@ -65,15 +64,9 @@ const Contact = () => {
           <div className="contact-box">
             <h4>Email</h4>
             <p>
-              <button
-                className="contact-email-btn"
-                onClick={() => copyEmailToClipboard(config.contact.email)}
-                data-cursor="disable"
-                title="Click to copy email address"
-              >
-                <span>{config.contact.email}</span>
-                <MdContentCopy className="contact-copy-icon" />
-              </button>
+              <a href={`mailto:${config.contact.email}`} data-cursor="disable">
+                {config.contact.email}
+              </a>
             </p>
             <h4>Location</h4>
             <p>

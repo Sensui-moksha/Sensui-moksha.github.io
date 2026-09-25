@@ -9,7 +9,6 @@ import { VscTerminal } from "react-icons/vsc";
 import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";
 import { THEMES, applyTheme, getCurrentTheme, ThemeOption } from "../utils/theme";
 import { isSoundEnabled, toggleSound, playClick, playThemeSound } from "../utils/audio";
-import { copyEmailToClipboard } from "../utils/toast";
 
 gsap.registerPlugin(ScrollTrigger);
 export let lenis: Lenis | null = null;
@@ -118,14 +117,13 @@ const Navbar = () => {
           </button>
         </div>
 
-        <button
+        <a
+          href={`mailto:${config.contact.email}`}
           className="navbar-connect"
-          onClick={() => copyEmailToClipboard(config.contact.email)}
           data-cursor="disable"
-          title="Click to copy email address"
         >
           {config.contact.email}
-        </button>
+        </a>
 
         <div className="navbar-right">
           {/* Accent Color Switcher */}

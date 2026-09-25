@@ -5,7 +5,7 @@ import {
 } from "react-icons/fa6";
 import "./styles/SocialIcons.css";
 import { TbNotes } from "react-icons/tb";
-import { MdKeyboardArrowUp, MdDownload, MdVisibility } from "react-icons/md";
+import { MdArrowOutward, MdKeyboardArrowUp, MdDownload } from "react-icons/md";
 import { useEffect, useRef, useState } from "react";
 import HoverLinks from "./HoverLinks";
 import { config } from "../config";
@@ -112,16 +112,6 @@ const SocialIcons = () => {
       <div className="resume-wrapper" ref={menuRef}>
         {menuOpen && (
           <div className="resume-menu" data-cursor="disable">
-            <button
-              className="resume-menu-item"
-              onClick={() => {
-                playButtonClick();
-                setMenuOpen(false);
-                window.dispatchEvent(new CustomEvent("open-resume"));
-              }}
-            >
-              <MdVisibility /> Preview Resume
-            </button>
             <a
               href="/resume/resume.pdf"
               download="Mokshyagna_Yadav_Resume.pdf"
@@ -132,6 +122,18 @@ const SocialIcons = () => {
               }}
             >
               <MdDownload /> Download PDF
+            </a>
+            <a
+              href="/resume/resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="resume-menu-item"
+              onClick={() => {
+                playButtonClick();
+                setMenuOpen(false);
+              }}
+            >
+              <MdArrowOutward /> View Resume
             </a>
             <button
               className="resume-menu-item"
