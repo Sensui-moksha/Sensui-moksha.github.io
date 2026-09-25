@@ -1,4 +1,28 @@
+# Robots.txt for Sensui-moksha Portfolio
+# Website: https://sensui-moksha.github.io
+
 User-agent: *
 Allow: /
 
+# Allow major search engine crawlers explicit access
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /images/
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Canonical host and sitemap location
+Host: https://sensui-moksha.github.io
 Sitemap: https://sensui-moksha.github.io/sitemap.xml

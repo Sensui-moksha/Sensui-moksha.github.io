@@ -12,16 +12,22 @@
   <meta name="keywords" content="Mokshyagna Yadav, Sensui-moksha, Full-Stack Developer, AI, Three.js, React, TypeScript, Machine Learning, Hyderabad, Web Developer Portfolio, Cryoflake" />
   <meta name="author" content="Mokshyagna Yadav" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <meta name="googlebot" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#0b080c" />
   <meta name="msapplication-TileColor" content="#0b080c" />
   <link rel="canonical" href="https://sensui-moksha.github.io/" />
+
+  <!-- Google / Bing Search Console Verification (Replace CONTENT with verification token if needed) -->
+  <!-- <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_TOKEN" /> -->
+  <!-- <meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_TOKEN" /> -->
 
   <!-- Favicons & Touch Icons -->
   <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png" />
   <link rel="shortcut icon" href="/images/icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
   <!-- Resource Preconnects for Faster Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -105,6 +111,18 @@
         "name": "Mokshyagna Yadav — Portfolio",
         "description": "Personal portfolio of Mokshyagna Yadav — Engineering student & developer building intelligent systems, modern web apps, and exploring AI/ML, Three.js, and system design.",
         "publisher": {
+          "@id": "https://sensui-moksha.github.io/#person"
+        }
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://sensui-moksha.github.io/#profilepage",
+        "url": "https://sensui-moksha.github.io",
+        "name": "Mokshyagna Yadav — Portfolio & Profile",
+        "isPartOf": {
+          "@id": "https://sensui-moksha.github.io/#website"
+        },
+        "mainEntity": {
           "@id": "https://sensui-moksha.github.io/#person"
         }
       }

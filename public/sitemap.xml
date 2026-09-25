@@ -1,9 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://sensui-moksha.github.io/</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://sensui-moksha.github.io/images/mypicnbg.png</image:loc>
+      <image:title>Mokshyagna Yadav — Engineering Student & Full-Stack Developer</image:title>
+      <image:caption>Mokshyagna Yadav (Sensui-moksha) Portfolio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://sensui-moksha.github.io/images/icon.png</image:loc>
+      <image:title>Sensui-moksha Logo & Brand Icon</image:title>
+      <image:caption>Sensui-moksha Portfolio Icon</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://sensui-moksha.github.io/images/project-1.webp</image:loc>
+      <image:title>Featured Project 1 Showcase</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sensui-moksha.github.io/images/project-2.webp</image:loc>
+      <image:title>Featured Project 2 Showcase</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sensui-moksha.github.io/images/project-3.webp</image:loc>
+      <image:title>Featured Project 3 Showcase</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sensui-moksha.github.io/images/project-4.webp</image:loc>
+      <image:title>Featured Project 4 Showcase</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sensui-moksha.github.io/images/project-5.webp</image:loc>
+      <image:title>Featured Project 5 Showcase</image:title>
+    </image:image>
   </url>
 </urlset>
